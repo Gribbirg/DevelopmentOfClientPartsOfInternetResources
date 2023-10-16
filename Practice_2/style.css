@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,800&family=Roboto:wght@300;400;700;900&display=swap');
+
+/*Шапка*/
+#header {
+    border: #002200 2px solid;
+    border-radius: 50px;
+    margin: 30px;
+    background: #96fa7f;
+    padding: 10px 10px 0;
+}
+
+#header_head {
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+    align-self: center;
+    color: #002200;
+}
+
+#logo_photos {
+    width: 100%;
+    margin: auto;
+    display: flex;
+
+    & img {
+        width: 15%;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+ul.nav_list {
+    padding: 4px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+
+    & li {
+        font-size: 18px;
+        text-align: center;
+        display: inline;
+        padding: 5px 50px;
+        width: 100%;
+
+        & a {
+            display: block;
+            padding: 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        & a:link {
+            background: #036e00;
+        }
+
+        & a:visited {
+            background: #54634d;
+        }
+
+        & a:hover {
+            background: #386568;
+        }
+    }
+}
+
+/*Названия частей*/
+.part_name {
+    font-size: 25px;
+    font-family: "Roboto Thin", sans-serif;
+    font-weight: 700;
+}
+
+/*Секции*/
+section {
+    background: #d7e8cd;
+    padding: 0 20px;
+    margin: 10px;
+    border-radius: 30px;
+    border: #121f0e 2px solid;
+
+    & * {
+        color: #121f0e;
+    }
+
+    > dl > dt {
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        margin-top: 15px;
+        color: #002200;
+    }
+}
+
+/*Цитата*/
+article {
+    background: #bcebee;
+    padding: 0 20px 10px;
+    margin: 10px 50px;
+    border-radius: 30px;
+    border: #002022 2px solid;
+
+    & * {
+        color: #002022;
+    }
+}
+
+/*Подсказка*/
+aside {
+    background: #386568;
+    border-radius: 10px;
+    width: 150px;
+    height: 100%;
+    padding: 10px 20px;
+    text-align: center;
+
+    & * {
+        color: #ffffff;
+    }
+}
+
+/*Настройка картинок*/
+#pic_div {
+    display: flex;
+}
+
+#pictures img {
+    margin: auto auto 30px;
+    background: #386667;
+    padding: 5px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/*Нижняя часть*/
+footer {
+    background: #87fd70;
+    text-align: center;
+    border-radius: 30px;
+    padding: 3px 20px;
+
+    & * {
+        color: #026e00;
+        text-decoration: none;
+    }
+
+    & small {
+        color: #002200;
+    }
+}
+
+p + address {
+    color: #002200;
+}

@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,800&family=Roboto:wght@300;400;700;900&display=swap');
+
+/*Шапка*/
+#header {
+    border: #002200 3px solid;
+    border-radius: 45px;
+    margin: 1px 5px 10px;
+    background: #77ff61;
+    height: 70px;
+    display: flex;
+    flex-flow: row;
+    align-content: stretch;
+    align-items: stretch;
+
+    position: sticky;
+    top: 2px;
+    z-index: 1;
+
+    & img {
+        width: 120px;
+        margin: 2px;
+        text-align: center;
+        /*flex-grow: 1;*/
+    }
+
+    & h1 {
+        width: fit-content;
+        flex-grow: 1;
+    }
+}
+
+/*Название сайта*/
+#header_head {
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    align-self: center;
+    color: #002200;
+}
+
+/*панель навигации*/
+nav {
+    flex-grow: 4;
+    height: 70px;
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    align-content: stretch;
+    outline: #002200 2px solid;
+    border-radius: 42px;
+
+    > input {
+        display: none;
+    }
+}
+
+/*список кнопок навигации*/
+ul.nav_list {
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: stretch;
+
+
+    & li {
+        font-size: 18px;
+        text-align: center;
+        list-style: none;
+        width: 100%;
+        height: 50px;
+
+
+        & a {
+            display: flex;
+            padding: 0 5px;
+            justify-content: space-around;
+            text-decoration: none;
+            color: #ffffff;
+            height: 70px;
+            background: #001f25;
+
+            > p {
+                margin: auto;
+                padding: 0;
+                font-size: 20px;
+            }
+        }
+
+        & a:link {
+            background: #026e00;
+        }
+
+        & a:visited {
+            background: #73796e;
+        }
+
+        & a:hover {
+            background: #006877;
+        }
+    }
+
+    :first-child > a {
+        border-bottom-left-radius: 45px;
+        border-top-left-radius: 45px;
+    }
+
+    :last-child > a {
+        border-bottom-right-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+}
+
+@media (max-width: 850px) {
+
+    nav {
+        flex-direction: row-reverse;
+        outline: none;
+        flex-grow: 1;
+
+        > label {
+            display: block;
+            margin-right: 20px;
+            right: 20px;
+            font-size: 50px;
+        }
+
+        > label::before {
+            content: '☰';
+        }
+    }
+
+    #header_head {
+        font-size: 1rem;
+    }
+
+    #nav_menu_button:checked {
+        + label {
+            transform: rotate(90deg);
+        }
+        + label + ul.nav_list {
+            visibility: visible;
+        }
+    }
+
+    ul.nav_list {
+        visibility: hidden;
+        display: flex;
+        flex-flow: column;
+
+        width: 100%;
+        height: fit-content;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        left: 0;
+
+        outline: #002200 2px solid;
+        border-radius: 45px;
+
+        > li {
+            display: block;
+            opacity: 0.95;
+            height: fit-content;
+
+            & a {
+                height: 10vh;
+            }
+
+        }
+
+        :first-child > a {
+            border-top-right-radius: 45px;
+            border-top-left-radius: 45px;
+            border-bottom-left-radius: 0;
+        }
+
+        :last-child > a {
+            border-bottom-right-radius: 45px;
+            border-bottom-left-radius: 45px;
+            border-top-right-radius: 0;
+        }
+    }
+
+    #shop_info {
+        > div > div {
+            width: 80vw;
+            height: 100vw;
+            & iframe {
+                width: 80vw;
+                height: 100vw;
+            }
+        }
+    }
+}
+
+/*якоря для навигации*/
+p.positions {
+    position: relative;
+    bottom: 100px;
+}
+
+/*Названия частей*/
+.part_name {
+    font-size: 25px;
+    font-family: "Roboto Thin", sans-serif;
+    font-weight: 700;
+}
+
+/*Секции*/
+section {
+    background: #dfe4d7;
+    padding: 0 20px;
+    margin: 10px;
+    border-radius: 30px;
+    border: #001f25 3px solid;
+
+    & * {
+        color: #1a1c18;
+    }
+
+    > dl > dt {
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        margin-top: 15px;
+        color: #002200;
+    }
+}
+
+/*список каталога*/
+#catalog_list {
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    align-items: start;
+    align-content: flex-end;
+    justify-content: space-around;
+
+    > li {
+        width: fit-content;
+        margin: 10px;
+        background: #77ff61;
+        padding: 20px;
+        border-radius: 30px;
+        border: #002200 2px solid;
+
+        > h4 {
+            font-family: "Roboto Thin", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            text-decoration: underline;
+            margin: 0 auto 20px;
+            color: #002200;
+        }
+
+        > ul {
+
+            list-style: revert;
+            padding-left: 20px;
+
+            & * {
+                color: #002200;
+            }
+        }
+    }
+}
+
+/*Цитата*/
+article {
+    background: #77ff61;
+    padding: 0 20px 10px;
+    border-radius: 30px;
+    border: #002200 2px solid;
+    float: left;
+    width: 15em;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    & * {
+        color: #002200;
+    }
+}
+
+/*Подсказка*/
+aside {
+    background: #006877;
+    border-radius: 10px;
+    width: 150px;
+    height: 100%;
+    padding: 10px 20px;
+    text-align: center;
+
+    & * {
+        color: #ffffff;
+    }
+}
+
+
+.content {
+    background: #006877;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+#photo_div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    /*height: 1000px;*/
+
+    & img {
+        margin: 10px 10px;
+        width: 300px;
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    #pic_div {
+        & img, & aside {
+            width: 80vw;
+        }
+        & * {
+            margin: 5px auto;
+        }
+
+        > img {
+            height: 110vw;
+        }
+
+        > a > img {
+            height: 45vw;
+        }
+    }
+    #photo_div {
+        & img {
+            width: 80vw;
+            margin: 5px auto;
+        }
+    }
+}
+
+/*Нижняя часть*/
+footer {
+    background: #ffddb2;
+    text-align: center;
+    border-radius: 30px;
+    padding: 10px 20px;
+
+    & * {
+        color: #815500;
+        text-decoration: none;
+    }
+
+    & small {
+        color: #291800;
+    }
+}
+
+p + address {
+    color: #291800;
+}
+
+#enter_form {
+    display: block;
+    align-self: center;
+    margin: 20px auto;
+    border: #121f0e 2px solid;
+    border-radius: 30px;
+    background: #ffddb2;
+    padding: 10px;
+
+    > h4 {
+        text-align: center;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 700;
+        margin: 0.4rem 0.4rem 1rem;
+    }
+
+    & * {
+        color: #291800;
+    }
+
+    & label {
+        margin: auto;
+        display: block;
+        text-align: center;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 500;
+    }
+
+    & input {
+        display: flex;
+        margin: auto;
+    }
+
+    & input:focus {
+        outline: #815500 2px solid;
+    }
+
+    > div {
+        display: flex;
+        margin: 0.5rem 0 0;
+
+        > button {
+            margin: auto;
+            align-self: center;
+            padding: 0.2rem 1rem;
+            border: #291800 1px solid;
+            border-radius: 30px;
+            background: #815500;
+            color: white;
+        }
+
+        > button:hover {
+            background: #026e00;;
+        }
+    }
+}
+
+#order_form {
+
+    border: #002200 2px solid;
+    border-radius: 20px;
+    background: #a5eeff;
+    width: 75%;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    & * {
+        margin: 0.5em;
+        color: #001f25;
+        font-family: "Roboto Thin", sans-serif;
+    }
+
+    & fieldset, & select {
+        display: inline;
+        border: #002200 1px solid;
+        border-radius: 10px;
+        height: min-content;
+        width: fit-content;
+    }
+
+    & select {
+        width: 18em;
+    }
+
+    & legend {
+        border: #002200 1px solid;
+        border-radius: 10px;
+        background: #006877;
+        padding: 0.1rem 0.5rem;
+        color: #ffffff;
+        width: max-content;
+        font-weight: 700;
+    }
+
+    > div {
+        > label {
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+
+    & textarea {
+        width: 40vw;
+    }
+
+    & textarea::placeholder {
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 200;
+        font-size: 1.1em;
+        color: #43483f;
+    }
+
+
+    & input {
+        padding: 5px;
+    }
+
+    & input[type=datetime-local] {
+        text-align: center;
+    }
+
+    & select {
+        padding: 5px;
+
+        & * {
+            margin: 0;
+            text-align: center;
+        }
+    }
+
+    > :last-child > input {
+        padding: 10px;
+        border: #002200 2px solid;
+        border-radius: 30px;
+        background: #006877;
+        color: white;
+        font-size: 1.5em;
+    }
+
+    > :last-child > input:hover {
+        background: #026e00;;
+    }
+}
+
+#order {
+    > div {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
+.field {
+    border: #002200 1px solid;
+    border-radius: 10px;
+    background: #fcfdf6;
+    padding: 5px 10px;
+    display: inline;
+    width: 15em;
+}
+
+.field:focus {
+    outline: #006877 2px solid;
+}
+
+#file, #time-local {
+    width: 16em;
+}
+
+#shop_info {
+
+    & h4 {
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 700;
+        font-size: 1.25em;
+    }
+
+    & iframe, & video {
+        margin: 0 1rem 1rem;
+        height: 500px;
+    }
+
+    > div {
+        display: block;
+        margin: auto auto 20px;
+
+        > div {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+
+            & * {
+                width: 80vw;
+                height: 35vw;
+            }
+
+        }
+    }
+}

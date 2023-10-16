@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,800&family=Roboto:wght@300;400;700;900&display=swap');
+
+/*Шапка*/
+#header {
+    border: #002200 2px solid;
+    border-radius: 50px;
+    margin: 10px 30px 10px;
+    background: #96fa7f;
+    padding: 10px 10px 0;
+    position: absolute;
+    top: 0;
+}
+
+/*Название сайта*/
+#header_head {
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+    align-self: center;
+    color: #002200;
+}
+
+/*Фотки в логотипе*/
+#logo_photos {
+    width: 100%;
+    margin: auto;
+    display: flex;
+
+    & img {
+        width: 15%;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+/*панель навигации*/
+nav {
+    border: #002200 2px solid;
+    border-radius: 42px;
+    margin: 180px 2px 0;
+    background: #036e00;
+    position: sticky;
+    top: 2px;
+    z-index: 1;
+}
+
+/*список кнопок навигации*/
+ul.nav_list {
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    display: flex;
+
+    & li {
+        font-size: 18px;
+        text-align: center;
+        list-style: none;
+        width: 100%;
+
+        & a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        & a:link {
+            background: #036e00;
+        }
+
+        & a:visited {
+            background: #54634d;
+        }
+
+        & a:hover {
+            background: #386568;
+        }
+    }
+
+    :first-child > a {
+        border-bottom-left-radius: 21px;
+        border-top-left-radius: 21px;
+    }
+
+    :last-child > a {
+        border-bottom-right-radius: 21px;
+        border-top-right-radius: 21px;
+    }
+}
+
+/*якоря для навигации*/
+p.positions {
+    position: relative;
+    bottom: 70px;
+}
+
+/*Названия частей*/
+.part_name {
+    font-size: 25px;
+    font-family: "Roboto Thin", sans-serif;
+    font-weight: 700;
+}
+
+/*Секции*/
+section {
+    background: #d7e8cd;
+    padding: 0 20px;
+    margin: 10px;
+    border-radius: 30px;
+    border: #121f0e 2px solid;
+
+    & * {
+        color: #121f0e;
+    }
+
+    > dl > dt {
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        margin-top: 15px;
+        color: #002200;
+    }
+}
+
+/*список каталога*/
+#catalog_list {
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+
+    > li {
+        margin: auto;
+
+        > h4 {
+            font-family: "Roboto Thin", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            text-decoration: underline;
+            margin: 0 auto 20px;
+        }
+
+        > ul {
+            list-style: revert;
+            padding-left: 20px;
+        }
+    }
+}
+
+/*Цитата*/
+article {
+    background: #bcebee;
+    padding: 0 20px 10px;
+    border-radius: 30px;
+    border: #002022 2px solid;
+    float: left;
+    width: 15%;
+    margin-right: 20px;
+
+    & * {
+        color: #002022;
+    }
+}
+
+/*Подсказка*/
+aside {
+    background: #386568;
+    border-radius: 10px;
+    width: 150px;
+    height: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    float: right;
+
+    & * {
+        color: #ffffff;
+    }
+}
+
+/*Настройка картинок*/
+#pictures img {
+    margin: auto auto 30px;
+    background: #386667;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/*Картинки*/
+#exhaust_pic {
+    position: relative;
+    bottom: 343px;
+}
+#crash_pic {
+    position: relative;
+    left: 100px
+}
+
+/*ссылка на разработчика*/
+address {
+    background: #bcebee;
+    text-align: center;
+    border: #002200 2px solid;
+    border-radius: 30px;
+    padding: 0 20px;
+    position: fixed;
+    bottom: 2px;
+    right: 2px;
+    color: #002200;
+
+    & * {
+        color: #002022;
+        text-decoration: none;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+/*создатель*/
+footer {
+    background: #87fd70;
+    text-align: center;
+    border-radius: 30px;
+    padding: 1px;
+
+    & small {
+        color: #002200;
+    }
+}
