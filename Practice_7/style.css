@@ -416,7 +416,8 @@ aside {
             padding: 5px 10px 30px;
             margin: auto;
             border-radius: 1rem;
-            background: rgba(128, 128, 128, 0.4);
+            background: rgba(128, 128, 128, 0.2);
+            box-shadow: 2px 2px 3px 3px grey;
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             z-index: 1;
@@ -451,8 +452,8 @@ aside {
             width: 50px;
             height: 50px;
             border-radius: 8px;
-            background: rgba(128, 128, 128, 0.2);
-            /*backdrop-filter: blur(10px);*/
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
             opacity: 0;
             transition: all 0.5s;
             z-index: 1;
@@ -467,8 +468,8 @@ aside {
             width: 50px;
             height: 50px;
             border-radius: 8px;
-            background: rgba(128, 128, 128, 0.2);
-            /*backdrop-filter: blur(10px);*/
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
             opacity: 0;
             transition: all 0.5s;
             z-index: 1;
@@ -487,6 +488,7 @@ aside {
         transform: skewX(20deg);
         border-radius: 20px;
         transition: all 400ms ease;
+
     }
 
     > div::after {
@@ -503,24 +505,36 @@ aside {
         transition: all 400ms ease;
     }
 
+    > div:nth-child(1)::before, > div:nth-child(1)::after {
+        background: linear-gradient(315deg, #52d7f1, #3de42e);
+    }
+
+    > div:nth-child(2)::before, > div:nth-child(2)::after {
+        background: linear-gradient(315deg, #ffb94c, #52d7f1);
+    }
+
+    > div:nth-child(3)::before, > div:nth-child(3)::after {
+        background: linear-gradient(315deg, #3de42e, #ffb94c);
+    }
+
     > div:hover::before, > div:hover::after {
         transform: skewX(0);
     }
 
     > div:hover > span::before {
-        bottom: -40px;
-        right: calc(12.5% + 50px);
-        width: 80px;
-        height: 80px;
+        bottom: 10px;
+        right: 12.5%;
+        width: 100px;
+        height: 100px;
         opacity: 1;
         animation: square_move_card 3s ease-in-out infinite alternate-reverse;
     }
 
     > div:hover > span::after {
-        top: -40px;
+        top: -50px;
         left: 12.5%;
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         opacity: 1;
         animation: square_move_card 3s ease-in-out infinite alternate;
     }
@@ -528,10 +542,10 @@ aside {
 
 @keyframes square_move_card {
     from {
-        transform: translateX(0);
+        transform: translateY(0);
     }
     to {
-        transform: translateX(50px);
+        transform: translateY(60px);
     }
 }
 
@@ -571,22 +585,44 @@ aside {
 /*Нижняя часть*/
 footer {
     background: #ffddb2;
-    text-align: center;
     border-radius: 30px;
     padding: 10px 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
 
-    & * {
-        color: #815500;
-        text-decoration: none;
+    > :nth-child(1) {
+        text-align: center;
+        flex-grow: 1;
+
+        & * {
+            color: #815500;
+            text-decoration: none;
+        }
+
+        & small {
+            color: #291800;
+        }
     }
 
-    & small {
-        color: #291800;
-    }
-}
+    > :nth-child(2) {
+        flex-grow: 5;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
 
-p + address {
-    color: #291800;
+        & * {
+            color: white;
+            padding: 20px;
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+            background: #026e00;
+        }
+    }
 }
 
 #enter_form {
