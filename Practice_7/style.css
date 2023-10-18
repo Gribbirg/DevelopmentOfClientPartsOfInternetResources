@@ -624,12 +624,17 @@ footer {
             justify-content: center;
             align-items: center;
             box-shadow: 1px 1px 2px black;
+            cursor: url("images/logo/logo_small.png"), pointer;
             > a {
                 position: relative;
                 font-size: 30px;
                 text-decoration: none;
                 text-align: center;
                 color: white;
+                cursor: url("images/logo/logo_small.png"), pointer;
+            }
+            > a:hover {
+
             }
 
         }
