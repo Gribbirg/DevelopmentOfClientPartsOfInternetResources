@@ -240,6 +240,130 @@ aside {
     box-shadow: 4px 4px 6px grey;
 }
 
+#blur_card_div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    counter-reset: blur_card_count;
+    pointer-events: none;
+
+    > div {
+        position: relative;
+        width: 250px;
+        height: 20rem;
+        border-radius: 20px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 1px 1px 3px 2px grey;
+        overflow: hidden;
+        counter-increment: blur_card_count;
+        pointer-events: auto;
+        transition: all 400ms;
+        margin: 20px 0;
+
+        > p {
+            width: 80%;
+            color: #002200;
+            font-family: "Roboto Thin", sans-serif;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        > button {
+            padding: 10px;
+            width: 150px;
+        }
+
+        > button:hover {
+            background: #ba1a1a;
+        }
+    }
+
+    > div:hover {
+        transform: scale(1.1);
+        z-index: 2;
+    }
+
+    > div::before {
+        content: counter(blur_card_count);
+        display: block;
+        position: absolute;
+        padding: 3rem 3rem 3rem;
+        top: -2rem;
+        font-size: 3rem;
+        width: 100%;
+        height: 3rem;
+        text-align: center;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        color: white;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 900;
+    }
+
+    > :nth-child(1) {
+        background: #77ff61;
+        border: #002200 1px solid;
+
+        > button {
+            background: #026e00;
+            border: #002200 1px solid;
+        }
+
+        > p {
+            color: #002200;
+        }
+    }
+
+    > :nth-child(1)::before {
+        background: #026e00;
+    }
+
+    > :nth-child(2) {
+        background: #a5eeff;
+        border: #001f25 1px solid;
+
+
+        > button {
+            background: #006877;
+            border: #001f25 1px solid;
+        }
+
+        > p {
+            color: #001f25;
+        }
+    }
+
+    > :nth-child(2)::before {
+        background: #006877;
+    }
+
+    > :nth-child(3) {
+        background: #ffddb2;
+        border: #291800 1px solid;
+
+        > button {
+            background: #815500;
+            border: #291800 1px solid;
+        }
+
+        > p {
+            color: #291800;
+        }
+    }
+
+    > :nth-child(3)::before {
+        background: #815500;
+    }
+}
+
+#blur_card_div:hover > div:not(:hover) {
+    filter: blur(10px) brightness(80%);
+}
 
 #photo_div {
     display: flex;
