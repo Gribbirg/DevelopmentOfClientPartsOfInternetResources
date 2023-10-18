@@ -259,6 +259,7 @@ aside {
 
 #crash_div {
     overflow: hidden;
+
     > img {
         margin: 0;
     }
@@ -331,6 +332,7 @@ aside {
     > button {
         transition: color 400ms ease;
         bottom: 15%;
+
         > span {
             transition: all 400ms, visibility 0ms 400ms;
         }
@@ -394,31 +396,142 @@ aside {
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+
     > div {
-        width: 300px;
-        padding: 30px;
-        margin: 50px 10px;
-        background: rgba(255, 0, 0, 0.1);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        > h3 {
-            width: 80%;
-            color: #002200;
-            font-family: "Roboto Thin", sans-serif;
-            font-weight: 700;
+        height: 28rem;
+        position: relative;
+        padding: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        margin: 50px 0;
+
+        > div {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 250px;
+            height: 14rem;
+            padding: 5px 10px 30px;
+            margin: auto;
+            border-radius: 1rem;
+            background: rgba(128, 128, 128, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 1;
+
+            > h3 {
+                width: 80%;
+                color: #002200;
+                font-family: "Roboto Thin", sans-serif;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            > p {
+                width: 80%;
+                color: #002200;
+                font-family: "Roboto Thin", sans-serif;
+                font-weight: 400;
+                text-align: center;
+            }
+
+            > button {
+                padding: 10px;
+                width: 150px;
+            }
         }
 
-        > p {
-            width: 80%;
-            color: #002200;
-            font-family: "Roboto Thin", sans-serif;
-            font-weight: 400;
+        > span::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: rgba(128, 128, 128, 0.2);
+            /*backdrop-filter: blur(10px);*/
+            opacity: 0;
+            transition: all 0.5s;
+            z-index: 1;
+
         }
 
-        > button {
-            padding: 10px;
-            width: 150px;
+        > span::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: rgba(128, 128, 128, 0.2);
+            /*backdrop-filter: blur(10px);*/
+            opacity: 0;
+            transition: all 0.5s;
+            z-index: 1;
         }
+    }
+
+
+    > div::before {
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(315deg, #ffbc00, #ff0058);
+        display: block;
+        position: absolute;
+        left: 25%;
+        transform: skewX(20deg);
+        border-radius: 20px;
+        transition: all 400ms ease;
+    }
+
+    > div::after {
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(315deg, #ffbc00, #ff0058);
+        display: block;
+        filter: blur(30px);
+        position: absolute;
+        left: 25%;
+        transform: skewX(20deg);
+        border-radius: 20px;
+        transition: all 400ms ease;
+    }
+
+    > div:hover::before, > div:hover::after {
+        transform: skewX(0);
+    }
+
+    > div:hover > span::before {
+        bottom: -40px;
+        right: calc(12.5% + 50px);
+        width: 80px;
+        height: 80px;
+        opacity: 1;
+        animation: square_move_card 3s ease-in-out infinite alternate-reverse;
+    }
+
+    > div:hover > span::after {
+        top: -40px;
+        left: 12.5%;
+        width: 80px;
+        height: 80px;
+        opacity: 1;
+        animation: square_move_card 3s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes square_move_card {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(50px);
     }
 }
 
@@ -442,6 +555,7 @@ aside {
     > button {
         transition: color 400ms ease;
         bottom: 15%;
+
         > span {
             transition: all 400ms, visibility 0ms 400ms;
         }
