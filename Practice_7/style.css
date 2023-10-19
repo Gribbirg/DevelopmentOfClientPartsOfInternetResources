@@ -366,6 +366,130 @@ aside {
     filter: blur(10px) brightness(80%);
 }
 
+#anim_line_div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    counter-reset: blur_card_count;
+    pointer-events: none;
+
+    > div {
+        position: relative;
+        width: 300px;
+        height: 20rem;
+        border-radius: 20px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 1px 1px 3px 2px grey;
+        overflow: hidden;
+        counter-increment: blur_card_count;
+        pointer-events: auto;
+        margin: 20px 0;
+        transition: all 400ms;
+
+        > p {
+            width: 80%;
+            color: #002200;
+            font-family: "Roboto Thin", sans-serif;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        > button {
+            padding: 10px;
+            width: 150px;
+        }
+
+        > button:hover {
+            background: #ba1a1a;
+        }
+
+        > h3 {
+            width: 80%;
+            color: #002200;
+            font-family: "Roboto Thin", sans-serif;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+
+    > div:hover {
+        transform: scale(1.1);
+        z-index: 2;
+        box-shadow: 2px 2px 4px 3px grey;
+        filter: brightness(100%);
+        transition: all 400ms;
+
+    }
+
+    > div:not(:hover) {
+        filter: brightness(75%);
+    }
+
+    > :nth-child(1) {
+        background: #77ff61;
+        border: #002200 1px solid;
+
+        > button {
+            background: #026e00;
+            border: #002200 1px solid;
+        }
+
+        > p, > h3 {
+            color: #002200;
+        }
+    }
+
+    > :nth-child(1)::before {
+        background: #026e00;
+    }
+
+    > :nth-child(2) {
+        background: #a5eeff;
+        border: #001f25 1px solid;
+
+
+        > button {
+            background: #006877;
+            border: #001f25 1px solid;
+        }
+
+        > p, > h3 {
+            color: #001f25;
+        }
+    }
+
+    > :nth-child(2)::before {
+        background: #006877;
+    }
+
+    > :nth-child(3) {
+        background: #ffddb2;
+        border: #291800 1px solid;
+
+        > button {
+            background: #815500;
+            border: #291800 1px solid;
+        }
+
+        > p, > h3 {
+            color: #291800;
+        }
+    }
+
+    > :nth-child(3)::before {
+        background: #815500;
+    }
+}
+
+#anim_line_div:hover > div:not(:hover) {
+    filter: brightness(25%);
+}
+
 #photo_div {
     display: flex;
     width: 100%;
