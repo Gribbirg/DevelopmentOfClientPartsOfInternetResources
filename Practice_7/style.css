@@ -493,10 +493,10 @@ aside {
     }
 
     > :nth-child(1) {
-        background: linear-gradient(90deg, #003400 50%, #002200 50%);
+        background: linear-gradient(90deg, #003800 50%, #002200 50%);
 
         > div {
-            background: linear-gradient(90deg, #003400 50%, #002200 50%);
+            background: linear-gradient(90deg, #003800 50%, #002200 50%);
 
             > button {
                 background: #026e00;
