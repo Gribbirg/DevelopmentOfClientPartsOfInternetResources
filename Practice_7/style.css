@@ -382,7 +382,7 @@ aside {
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        padding: 5px;
+        padding: 2px;
         box-shadow: 1px 1px 3px 2px grey;
         overflow: hidden;
         counter-increment: blur_card_count;
@@ -455,9 +455,9 @@ aside {
         width: 50%;
         position: absolute;
         bottom: 50%;
-        left: 25%;
+        left: 5%;
         background: linear-gradient(90deg, #002200, #77ff61);
-        transform-origin: bottom center;
+        transform-origin: bottom right;
         opacity: 0;
         animation-play-state: paused;
         transition: opacity 400ms;
@@ -493,10 +493,10 @@ aside {
     }
 
     > :nth-child(1) {
-        background: #002200;
+        background: linear-gradient(90deg, #003400 50%, #002200 50%);
 
         > div {
-            background: #77ff61;
+            background: linear-gradient(90deg, #003400 50%, #002200 50%);
 
             > button {
                 background: #026e00;
@@ -504,7 +504,7 @@ aside {
             }
 
             > p, > h3 {
-                color: #002200;
+                color: #ffffff;
             }
         }
 
@@ -519,10 +519,10 @@ aside {
     }
 
     > :nth-child(2) {
-        background: #001f25;
+        background: linear-gradient(90deg, #002e36 50%, #001f25 50%);
 
         > div {
-            background: #a5eeff;
+            background: linear-gradient(90deg, #002e36 50%, #001f25 50%);
 
             > button {
                 background: #006877;
@@ -530,7 +530,7 @@ aside {
             }
 
             > p, > h3 {
-                color: #001f25;
+                color: #ffffff;
             }
         }
         > div::before {
@@ -544,10 +544,10 @@ aside {
     }
 
     > :nth-child(3) {
-        background: #291800;
+        background: linear-gradient(90deg, #3d2400 50%, #291800 50%);
 
         > div {
-            background: #ffddb2;
+            background: linear-gradient(90deg, #3d2400 50%, #291800 50%);
 
             > button {
                 background: #815500;
@@ -555,7 +555,7 @@ aside {
             }
 
             > p, > h3 {
-                color: #291800;
+                color: #ffffff;
             }
         }
         > div::before {
