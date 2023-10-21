@@ -452,10 +452,10 @@ aside {
         content: '';
         display: block;
         height: 100%;
-        width: 50%;
+        width: 46%;
         position: absolute;
         bottom: 50%;
-        left: 5%;
+        left: 4%;
         background: linear-gradient(90deg, #002200, #77ff61);
         transform-origin: bottom right;
         opacity: 0;
