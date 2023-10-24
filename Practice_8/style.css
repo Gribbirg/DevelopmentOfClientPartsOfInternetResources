@@ -39,7 +39,7 @@ main {
 #order {
     grid-column-start: 2;
     grid-column-end: 6;
-    width: fit-content;
+    /*width: fit-content;*/
 }
 
 #shop_info {
@@ -298,15 +298,16 @@ aside {
 
 #blur_card_div {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
     counter-reset: blur_card_count;
     pointer-events: none;
+    height: 49%;
 
     > div {
         position: relative;
-        width: 250px;
+        width: 300px;
         height: 20rem;
         border-radius: 20px;
         display: flex;
@@ -319,7 +320,7 @@ aside {
         counter-increment: blur_card_count;
         pointer-events: auto;
         transition: all 400ms;
-        margin: 20px 0;
+        margin: 0;
 
         > p {
             width: 80%;
@@ -424,10 +425,11 @@ aside {
 
 #anim_line_div {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
     pointer-events: none;
+    height: 49%;
 
     > div {
         position: relative;
@@ -443,7 +445,7 @@ aside {
         overflow: hidden;
         counter-increment: blur_card_count;
         pointer-events: auto;
-        margin: 20px 0;
+        margin: 0;
         transition: transform 400ms, filter 400ms;
 
         > div {
@@ -1172,18 +1174,18 @@ footer {
 }
 
 #order_form {
-
+    display: grid;
+    grid: repeat(10, fit-content(100px)) / 50% 50%;
     border: #5f858f 1px solid;
     border-radius: 20px;
     backdrop-filter: blur(2px);
     box-shadow: 4px 4px 6px grey;
     background: rgba(165, 238, 255, 0.5);
-    width: 75%;
+    width: calc(100% - 20px);
+    justify-content: stretch;
+    justify-items: start;
     margin: 20px 0;
     padding: 10px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
     align-items: center;
     z-index: 2;
 
@@ -1198,7 +1200,7 @@ footer {
         border: #002200 1px solid;
         border-radius: 10px;
         height: min-content;
-        width: fit-content;
+        width: 90%;
     }
 
     & select {
@@ -1216,6 +1218,8 @@ footer {
     }
 
     > div {
+        width: 100%;
+
         > label {
             font-weight: 700;
             text-align: center;
@@ -1223,7 +1227,7 @@ footer {
     }
 
     & textarea {
-        width: 20vw;
+        width: 85%;
     }
 
     & textarea::placeholder {
@@ -1233,13 +1237,30 @@ footer {
         color: #43483f;
     }
 
+    & fieldset {
+        width: fit-content;
+        margin: 0.5em;
+        > div {
+            display: inline-flex;
+            flex-flow: row nowrap;
+            padding: 0;
+            margin: 0;
+            width: fit-content;
+            height: fit-content;
+
+            & * {
+                color: #001f25;
+                font-family: "Roboto Thin", sans-serif;
+            }
+        }
+    }
 
     & input {
         padding: 5px;
     }
 
     & input[type=datetime-local] {
-        text-align: center;
+        width: 90%;
     }
 
     & select {
@@ -1303,35 +1324,14 @@ footer {
     }
 }
 
-#order {
-
-}
-
-@keyframes form_move {
-    20% {
-        transform: translate(calc(60vw * var(--move_to)), 0);
-    }
-    40% {
-        transform: translate(calc(var(--size) * 4 * var(--move_to)), calc(var(--size) * 2 * var(--move_to)));
-    }
-    60% {
-        transform: translate(calc((5vw + 80px) * var(--move_to)), calc(100px * var(--move_to)));
-    }
-    80% {
-        transform: translate(calc((var(--size) + 50px) * var(--move_to)), calc((var(--size) + 80px) * var(--move_to)));
-    }
-    to {
-        transform: translate(calc(50px * var(--move_to)), calc(50px * var(--move_to)));
-    }
-}
-
 .field {
     border: #002200 1px solid;
     border-radius: 10px;
     background: #fcfdf6;
     padding: 5px 10px;
-    display: inline;
-    width: 15em;
+    display: inline-flex;
+    flex-flow: row wrap;
+    width: 90%;
 }
 
 .field:focus {
@@ -1339,7 +1339,7 @@ footer {
 }
 
 #file, #time-local {
-    width: 16em;
+    width: 90%;
 }
 
 #shop_info {
@@ -1352,7 +1352,6 @@ footer {
 
     & iframe, & video {
         margin: 0 1rem 1rem;
-        height: 500px;
     }
 
     > div {

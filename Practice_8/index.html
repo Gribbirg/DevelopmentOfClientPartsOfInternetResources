@@ -35,55 +35,7 @@
 </header>
 
 <main>
-    <section id="parts">
-        <p id="parts_position" class="positions"></p>
-        <h2 class="part_name">Информация о нашем магазине</h2>
-        <div id="blur_card_div">
-            <div>
-                <p>Как выбрать двигатель автомобиля, какой выбрать двигатель, какие бывают двигатели, чем они отличаются
-                    и
-                    чем одни из них лучше других?</p>
-                <button class="arrow_button"><span>Подробнее</span></button>
-            </div>
-            <div>
-                <p>От того, какое моторное масло вы выбираете, во многом зависит стабильная работа двигателя
-                    автомобиля.</p>
-                <button class="arrow_button"><span>Подробнее</span></button>
-            </div>
-            <div>
-                <p>От того, какая резина установлена на автомобиле, во многом зависит безопасность водителя и пешеходов.
-                </p>
-                <button class="arrow_button"><span>Подробнее</span></button>
-            </div>
-        </div>
-        <div id="anim_line_div">
-            <div>
-                <div>
-                    <h3>Кто покупает Москвич?</h3>
-                    <p>Проблем со сбытом кроссовера Москвич 3 не будет, поскольку эта машина станет востребована в
-                        корпоративных и ведомственных автопарках, таким мнением поделился вице-мэр столицы Максим
-                        Ликсутов.</p>
-                    <button class="arrow_button"><span>Подробнее</span></button>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <h3>Где покупают автозапчасти на Москвич?</h3>
-                    <p>Разумеется, в нашем магазине! Только у нас вы можете купить самые надёжные и выгодные
-                        автозапчасти.</p>
-                    <button class="arrow_button"><span>Подробнее</span></button>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <h3>Зачем необходимо менять масло в двигателе?</h3>
-                    <p>Замена масла в двигателе необходима для долговечной, исправной работы силового агрегата. Масло
-                        выполняет функцию смазки трущихся деталей и механизмов.</p>
-                    <button class="arrow_button"><span>Подробнее</span></button>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <section id="catalog" class="part">
         <!--Списки-->
         <p id="catalog_position" class="positions"></p>
@@ -206,6 +158,55 @@
         </dl>
     </section>
 
+    <section id="parts">
+        <p id="parts_position" class="positions"></p>
+        <h2 class="part_name">Информация</h2>
+        <div id="blur_card_div">
+            <div>
+                <p>Как выбрать двигатель автомобиля, какой выбрать двигатель, какие бывают двигатели, чем они отличаются
+                    и
+                    чем одни из них лучше других?</p>
+                <button class="arrow_button"><span>Подробнее</span></button>
+            </div>
+            <div>
+                <p>От того, какое моторное масло вы выбираете, во многом зависит стабильная работа двигателя
+                    автомобиля.</p>
+                <button class="arrow_button"><span>Подробнее</span></button>
+            </div>
+            <div>
+                <p>От того, какая резина установлена на автомобиле, во многом зависит безопасность водителя и пешеходов.
+                </p>
+                <button class="arrow_button"><span>Подробнее</span></button>
+            </div>
+        </div>
+        <div id="anim_line_div">
+            <div>
+                <div>
+                    <h3>Кто покупает Москвич?</h3>
+                    <p>Проблем со сбытом кроссовера Москвич 3 не будет, поскольку эта машина станет востребована в
+                        корпоративных и ведомственных автопарках, таким мнением поделился вице-мэр столицы Максим
+                        Ликсутов.</p>
+                    <button class="arrow_button"><span>Подробнее</span></button>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Где покупают автозапчасти на Москвич?</h3>
+                    <p>Разумеется, в нашем магазине! Только у нас вы можете купить самые надёжные и выгодные
+                        автозапчасти.</p>
+                    <button class="arrow_button"><span>Подробнее</span></button>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Зачем необходимо менять масло в двигателе?</h3>
+                    <p>Замена масла в двигателе необходима для долговечной, исправной работы силового агрегата. Масло
+                        выполняет функцию смазки трущихся деталей и механизмов.</p>
+                    <button class="arrow_button"><span>Подробнее</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="order">
         <p id="order_position" class="positions"></p>
@@ -224,21 +225,21 @@
                 </div>
                 <fieldset class="field">
                     <legend>Пол</legend>
-                    <input type="radio" name="sex" id="man" checked><label for="man">Мужчина</label><br>
-                    <input type="radio" name="sex" id="woman"><label for="woman">Женщина</label>
+                    <div><input type="radio" name="sex" id="man" checked><label for="man">Мужчина</label></div>
+                    <div><input type="radio" name="sex" id="woman"><label for="woman">Женщина</label></div>
                 </fieldset>
                 <fieldset class="field">
                     <legend>Какой товар желаете?</legend>
-                    <input type="checkbox" name="oil" id="oil"><label for="oil">Масло и автохимия</label><br>
-                    <input type="checkbox" name="tiers" id="tiers"><label for="tiers">Шины, диски</label><br>
-                    <input type="checkbox" name="elec" id="elec"><label for="elec">Автоэлектроника</label><br>
-                    <input type="checkbox" name="other" id="other"><label for="other">Остальное</label>
+                    <div><input type="checkbox" name="oil" id="oil"><label for="oil">Масло и автохимия</label></div>
+                    <div><input type="checkbox" name="tiers" id="tiers"><label for="tiers">Шины, диски</label></div>
+                    <div><input type="checkbox" name="elec" id="elec"><label for="elec">Автоэлектроника</label></div>
+                    <div><input type="checkbox" name="other" id="other"><label for="other">Остальное</label></div>
                 </fieldset>
 
                 <div>
                     <label for="problem_desc">Опишите вашу проблему:</label><br>
                     <textarea name="problem_desc" id="problem_desc"
-                              cols="80" rows="10" maxlength="1000000"
+                              cols="1" rows="2" maxlength="1000000"
                               minlength="10" required
                               placeholder="Опишите, как ведёт себя ваш автомобиль, историю неисправности"
                               class="field"></textarea>
@@ -305,26 +306,26 @@
         <p id="shop_info_position" class="positions"></p>
         <h2 class="part_name">О нашем автомагазине</h2>
 
-        <!--        <div>-->
+                <div>
 
-        <!--            <h4>Наш магазин расположен по адрессу:</h4>-->
-        <!--            <div id="shop_place_div">-->
-        <!--                <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ulitsa%20Lobachevskogo,%20%D0%B4.%2048/87,%20Moscow,%20119415+(%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%81%D0%B0%D1%87%D1%82%D0%B5%D0%B9)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"-->
-        <!--                        width="80%" height="45%" title="Улица Лобачевского, д. 2. 119415, г. Москва, 48/87"-->
-        <!--                        frameborder="0"-->
-        <!--                        class="content"></iframe>-->
-        <!--            </div>-->
+                    <h4>Наш магазин расположен по адрессу:</h4>
+                    <div id="shop_place_div">
+                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ulitsa%20Lobachevskogo,%20%D0%B4.%2048/87,%20Moscow,%20119415+(%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%81%D0%B0%D1%87%D1%82%D0%B5%D0%B9)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                                width="80%" height="45%" title="Улица Лобачевского, д. 2. 119415, г. Москва, 48/87"
+                                frameborder="0"
+                                class="content"></iframe>
+                    </div>
 
 
-        <!--            <h4>Видео о нас:</h4>-->
-        <!--            <div id="video_div">-->
-        <!--                <iframe width="80%" height="45%" src="https://www.youtube.com/embed/U5sBtvZ-BPI?si=3YFj2bY2asdChys_"-->
-        <!--                        title="YouTube video player" frameborder="0"-->
-        <!--                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-        <!--                        allowfullscreen-->
-        <!--                        class="content"></iframe>-->
-        <!--            </div>-->
-        <!--        </div>-->
+<!--                    <h4>Видео о нас:</h4>-->
+                    <!--                    <div id="video_div">-->
+                    <!--                        <iframe width="80%" height="45%" src="https://www.youtube.com/embed/U5sBtvZ-BPI?si=3YFj2bY2asdChys_"-->
+                    <!--                                title="YouTube video player" frameborder="0"-->
+                    <!--                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
+                    <!--                                allowfullscreen-->
+                    <!--                                class="content"></iframe>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
     </section>
 
 </main>
