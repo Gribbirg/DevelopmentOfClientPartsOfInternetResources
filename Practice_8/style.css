@@ -295,7 +295,7 @@ aside {
     align-items: center;
     counter-reset: blur_card_count;
     pointer-events: none;
-    height: 49%;
+    height: 48%;
 
     > div {
         position: relative;
@@ -312,7 +312,7 @@ aside {
         counter-increment: blur_card_count;
         pointer-events: auto;
         transition: all 400ms;
-        margin: 0;
+        margin: 10px 0;
 
         > p {
             width: 80%;
@@ -421,7 +421,9 @@ aside {
     justify-content: space-around;
     align-items: center;
     pointer-events: none;
-    height: 49%;
+    height: 48%;
+    /*padding-bottom: 100px;*/
+    padding-bottom: 50px;
 
     > div {
         position: relative;
@@ -1070,7 +1072,7 @@ footer {
     display: block;
     align-self: center;
     backdrop-filter: blur(2px);
-    margin: 10px 0;
+    margin: 10px 10px;
     border: #8f7e65 1px solid;
     box-shadow: 4px 4px 6px grey;
     border-radius: 30px;
@@ -1168,7 +1170,8 @@ footer {
 
 #order_form {
     display: grid;
-    grid: repeat(10, fit-content(100px)) / 50% 50%;
+    grid: repeat(10, fit-content(100px)) / 1fr 1fr;
+    grid-auto-flow: row dense;
     border: #5f858f 1px solid;
     border-radius: 20px;
     backdrop-filter: blur(2px);
@@ -1197,7 +1200,7 @@ footer {
     }
 
     & select {
-        width: 18em;
+        width: 90%;
     }
 
     & legend {
@@ -1220,7 +1223,7 @@ footer {
     }
 
     & textarea {
-        width: 85%;
+        width: calc(95% - 5px);
         height: 5rem;
     }
 
@@ -1233,6 +1236,7 @@ footer {
 
     & fieldset {
         margin: 0.5em;
+
         > div {
             display: inline-flex;
             flex-flow: row nowrap;
@@ -1240,6 +1244,7 @@ footer {
             margin: 0;
             width: 13rem;
             height: fit-content;
+
             & * {
                 color: #001f25;
                 font-family: "Roboto Thin", sans-serif;
@@ -1268,6 +1273,7 @@ footer {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-around;
+        grid-column: span 2;
         > button {
             padding: 10px;
             font-size: 1.5em;
@@ -1278,6 +1284,10 @@ footer {
                 color: white;
             }
         }
+    }
+
+    > :nth-child(6) {
+        grid-column: span 2;
     }
 }
 

@@ -1,3 +1,17 @@
+main {
+    grid: repeat(4, fit-content(100px)) / 1fr;
+    grid-auto-flow: row dense;
+}
+
+#parts, #shop_info, #order {
+    grid-column: 1;
+    grid-column-start: auto;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
+    /*height: fit-content;*/
+}
+
 nav {
     flex-direction: row-reverse;
     outline: none;
@@ -74,41 +88,21 @@ ul.nav_list {
 
 #shop_info {
     > div > div {
-        width: 75vw;
         & iframe {
             width: 75vw;
-            height: 100vw;
-        }
-        & video {
-            height: fit-content;
-            width: 75vw;
+            height: 30vw;
         }
     }
 }
 
-#pic_div {
-    & img, & aside {
-        width: 80vw;
-    }
-    & * {
-        margin: 5px auto;
+#order_form {
+    grid: repeat(10, fit-content(100px)) / 1fr;
+    > :last-child {
+        grid-column: span 1;
     }
 
-    & img {
-        height: 110vw;
+    > :nth-child(6) {
+        grid-column: span 1;
+        width: 95%;
     }
-
-    > a > img {
-        height: 45vw;
-    }
-}
-#photo_div {
-    & img, & div {
-        width: 80vw;
-        margin: 5px auto;
-    }
-}
-
-#crash_div:hover::before {
-    box-shadow: 0 -85vw 85vw #77ff61 inset;
 }
