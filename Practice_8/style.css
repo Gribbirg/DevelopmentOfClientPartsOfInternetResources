@@ -3,7 +3,7 @@
 main {
 
     display: grid;
-    grid: repeat(4, fit-content(100px)) / fit-content(100px) 1fr 1fr 1fr 1fr;
+    grid: repeat(4, fit-content(100px)) / fit-content(100px) 1fr 1fr;
     grid-auto-flow: row dense;
     width: 100%;
     row-gap: 20px;
@@ -13,8 +13,7 @@ main {
 }
 
 #DVS {
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column: span 1;
 }
 
 #parts {
@@ -26,32 +25,25 @@ main {
 }
 
 #catalog {
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column: span 1;
     /*height: fit-content;*/
 }
 
 #descriptions {
-    grid-column-start: 4;
-    grid-column-end: 6;
+    grid-column: span 1;
 }
 
 #order {
-    grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column: span 2;
     /*width: fit-content;*/
 }
 
 #shop_info {
-    grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column: span 2;
 }
 
 #lk {
-    grid-column-start: 4;
-    grid-column-end: 6;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-column: span 1;
     /*height: fit-content;*/
 }
 
@@ -997,6 +989,7 @@ footer {
     background: #ffddb2;
     border-radius: 30px;
     padding: 10px 20px;
+    margin-top: 20px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -1228,6 +1221,7 @@ footer {
 
     & textarea {
         width: 85%;
+        height: 5rem;
     }
 
     & textarea::placeholder {
@@ -1238,16 +1232,14 @@ footer {
     }
 
     & fieldset {
-        width: fit-content;
         margin: 0.5em;
         > div {
             display: inline-flex;
             flex-flow: row nowrap;
             padding: 0;
             margin: 0;
-            width: fit-content;
+            width: 13rem;
             height: fit-content;
-
             & * {
                 color: #001f25;
                 font-family: "Roboto Thin", sans-serif;
@@ -1273,6 +1265,9 @@ footer {
     }
 
     > :last-child {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
         > button {
             padding: 10px;
             font-size: 1.5em;
@@ -1366,8 +1361,8 @@ footer {
             align-items: center;
 
             & iframe {
-                width: 60vw;
-                height: 35vw;
+                width: 50vw;
+                height: 25vw;
             }
         }
     }
