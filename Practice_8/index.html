@@ -247,13 +247,17 @@
         <div>
             <form method="post" id="order_form">
                 <div><label for="name">Ваше имя:</label><br><input type="text" name="name" id="name" class="field"
-                                                                   required>
+                                                                   required placeholder="">
                 </div>
-                <div><label for="tel">Телефон:</label><br><input type="tel" name="tel" id="tel" class="field" required
-                                                                 pattern="[+][7][0-9]{10}">
+                <div class="text_div"><label for="tel">Телефон:</label><input type="tel" name="tel" id="tel"
+                                                                              class="field" required
+                                                                              pattern="[+][7][0-9]{10}"
+                                                                              placeholder="+7XXXXXXXXXX">
                 </div>
-                <div><label for="email">Электронная почта:</label><br><input type="email" name="email" id="email"
-                                                                             class="field" required>
+                <div class="text_div"><label for="email">Электронная почта:</label><input type="email" name="email"
+                                                                                          id="email"
+                                                                                          class="field" required
+                                                                                          placeholder="">
                 </div>
                 <fieldset class="field">
                     <legend>Пол</legend>
@@ -294,7 +298,8 @@
                     <input type="datetime-local"
                            name="time-local"
                            id="time-local" required
-                           class="field">
+                           class="field"
+                           placeholder="">
                 </div>
                 <div>
                     <button type="submit" name="sub" id="sub" class="arrow_button"><span>Отправить</span></button>
@@ -304,31 +309,30 @@
     </section>
 
 
-
     <section id="shop_info">
         <p id="shop_info_position" class="positions"></p>
         <h2 class="part_name">О нашем автомагазине</h2>
 
-                <div>
+        <div>
 
-                    <h4>Наш магазин расположен по адрессу:</h4>
-                    <div id="shop_place_div">
-                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ulitsa%20Lobachevskogo,%20%D0%B4.%2048/87,%20Moscow,%20119415+(%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%81%D0%B0%D1%87%D1%82%D0%B5%D0%B9)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                                width="80%" height="45%" title="Улица Лобачевского, д. 2. 119415, г. Москва, 48/87"
-                                frameborder="0"
-                                class="content"></iframe>
-                    </div>
+            <h4>Наш магазин расположен по адрессу:</h4>
+            <div id="shop_place_div">
+                <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ulitsa%20Lobachevskogo,%20%D0%B4.%2048/87,%20Moscow,%20119415+(%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%81%D0%B0%D1%87%D1%82%D0%B5%D0%B9)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                        width="80%" height="45%" title="Улица Лобачевского, д. 2. 119415, г. Москва, 48/87"
+                        frameborder="0"
+                        class="content"></iframe>
+            </div>
 
 
-<!--                    <h4>Видео о нас:</h4>-->
-                    <!--                    <div id="video_div">-->
-                    <!--                        <iframe width="80%" height="45%" src="https://www.youtube.com/embed/U5sBtvZ-BPI?si=3YFj2bY2asdChys_"-->
-                    <!--                                title="YouTube video player" frameborder="0"-->
-                    <!--                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-                    <!--                                allowfullscreen-->
-                    <!--                                class="content"></iframe>-->
-                    <!--                    </div>-->
-                                    </div>
+            <!--                    <h4>Видео о нас:</h4>-->
+            <!--                    <div id="video_div">-->
+            <!--                        <iframe width="80%" height="45%" src="https://www.youtube.com/embed/U5sBtvZ-BPI?si=3YFj2bY2asdChys_"-->
+            <!--                                title="YouTube video player" frameborder="0"-->
+            <!--                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
+            <!--                                allowfullscreen-->
+            <!--                                class="content"></iframe>-->
+            <!--                    </div>-->
+        </div>
     </section>
 
 </main>

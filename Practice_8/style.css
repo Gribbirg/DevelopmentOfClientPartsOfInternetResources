@@ -1217,14 +1217,21 @@ footer {
         width: 100%;
 
         > label {
+            cursor: text;
+            margin-bottom: 0;
+            display: inline-block;
+            width: 95%;
+            height: fit-content;
             font-weight: 700;
-            text-align: center;
+            /*text-align: center;*/
         }
     }
 
     & textarea {
         width: calc(95% - 5px);
-        height: 5rem;
+        padding: 0;
+        height: 0;
+        transition: all 400ms;
     }
 
     & textarea::placeholder {
@@ -1253,8 +1260,33 @@ footer {
     }
 
     & input {
+        margin-top: 0;
         padding: 5px;
+        transition: all 400ms;
     }
+
+    & input[type=text], & input[type=email], & input[type=tel] {
+        padding: 0;
+        height: 0;
+    }
+
+    & input[type=text]:focus,
+    & input[type=email]:focus,
+    & input[type=tel]:focus,
+    & input[type=text]:not(:placeholder-shown),
+    & input[type=email]:not(:placeholder-shown),
+    & input[type=tel]:not(:placeholder-shown),
+    & textarea:not(:placeholder-shown) {
+        padding: 5px;
+        height: auto;
+    }
+
+    & textarea:focus,
+    & textarea:not(:placeholder-shown) {
+        padding: 5px;
+        height: 5rem;
+    }
+
 
     & input[type=datetime-local] {
         width: 90%;
@@ -1274,6 +1306,7 @@ footer {
         flex-flow: row nowrap;
         justify-content: space-around;
         grid-column: span 2;
+
         > button {
             padding: 10px;
             font-size: 1.5em;
