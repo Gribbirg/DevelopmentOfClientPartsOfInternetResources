@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,800&family=Roboto:wght@300;400;700;900&display=swap');
 
 main {
-
     display: grid;
     grid: repeat(4, fit-content(100px)) / fit-content(100px) 1fr 1fr;
     grid-auto-flow: row dense;
@@ -983,6 +982,45 @@ aside {
 #catalog_pic_div:hover {
     > img {
         transform: perspective(400px) rotateY(-80deg);
+    }
+}
+
+#pictures {
+    height: fit-content;
+    padding-bottom: 20px;;
+}
+
+#pic_div {
+    width: calc(100vw - 100px);
+    height: fit-content;
+    display: grid;
+    grid: repeat(3, calc((100vw - 160px) / 8)) / repeat(4, calc((100vw - 160px) / 4));
+    grid-auto-flow: row dense;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 20px;
+
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+
+    :nth-child(1) {
+        grid-row: span 2;
+    }
+
+    :nth-child(3) {
+        grid-column: span 2;
+    }
+
+    :nth-child(5) {
+        grid-row: span 2;
+    }
+
+    :nth-child(7) {
+        grid-column: span 2;
     }
 }
 

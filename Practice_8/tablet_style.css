@@ -91,3 +91,18 @@ ul.nav_list {
     }
 }
 
+#pic_div {
+    grid:repeat(6, calc((100vw - 160px) / 8)) / repeat(2, calc((100vw - 160px) / 2));
+    grid-auto-flow: row dense;
+
+    :nth-child(3) {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+
+    :nth-child(7) {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+}
+
