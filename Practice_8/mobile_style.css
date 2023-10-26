@@ -106,3 +106,24 @@ ul.nav_list {
         width: 95%;
     }
 }
+
+#pic_div {
+    grid: repeat(8, calc((100vw - 160px) / 2)) / calc((100vw - 160px));
+    grid-auto-flow: row;
+
+    > :nth-child(1) {
+        grid-row: span 1;
+    }
+
+    > :nth-child(3) {
+        grid-column: span 1;
+    }
+
+    > :nth-child(5) {
+        grid-row: span 1;
+    }
+
+    > :nth-child(7) {
+        grid-column: span 1;
+    }
+}

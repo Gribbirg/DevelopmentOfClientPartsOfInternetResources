@@ -660,11 +660,12 @@ aside {
     }
 }
 
-#crash_div {
+.shadow_inside {
     overflow: hidden;
 
     > img {
         margin: 0;
+        z-index: 0;
     }
 
     > h3, > p, > button {
@@ -687,7 +688,7 @@ aside {
     }
 }
 
-#crash_div:hover {
+.shadow_inside:hover {
     > h3 {
         bottom: 50%;
     }
@@ -701,7 +702,7 @@ aside {
     }
 }
 
-#crash_div::before {
+.shadow_inside::before {
     transition: all 400ms ease;
     height: 100%;
     width: 100%;
@@ -709,9 +710,10 @@ aside {
     top: 0;
     content: '';
     display: block;
+    z-index: 1;
 }
 
-#crash_div:hover::before {
+.shadow_inside:hover::before {
     box-shadow: 0 -400px 400px #77ff61 inset;
 }
 
@@ -994,7 +996,7 @@ aside {
     width: calc(100vw - 100px);
     height: fit-content;
     display: grid;
-    grid: repeat(3, calc((100vw - 160px) / 8)) / repeat(4, calc((100vw - 160px) / 4));
+    grid: repeat(3, calc((100vw - 160px) / 6)) / repeat(4, calc((100vw - 160px) / 4));
     grid-auto-flow: row dense;
     justify-content: space-around;
     justify-items: center;
@@ -1002,25 +1004,81 @@ aside {
     column-gap: 20px;
     row-gap: 20px;
 
-    & img {
+    & img, & div {
+        position: relative;
         width: 100%;
         height: 100%;
     }
 
-    :nth-child(1) {
+    > div:hover::before {
+        box-shadow: 0 -250px 250px #77ff61 inset;
+    }
+
+    > div::after {
+        display: block;
+        content: "dasdffsdafdsda";
+        width: calc(100% - 20px);
+        height: fit-content;
+        position: absolute;
+        bottom: -100px;
+        left: 10px;
+        transition: all 400ms;
+        z-index: 2;
+        color: #002200;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 400;
+    }
+
+    > div:hover::after {
+        bottom: 10px;
+    }
+
+    > :nth-child(1) {
         grid-row: span 2;
     }
 
-    :nth-child(3) {
+    > :nth-child(3) {
         grid-column: span 2;
     }
 
-    :nth-child(5) {
+    > :nth-child(5) {
         grid-row: span 2;
     }
 
-    :nth-child(7) {
+    > :nth-child(7) {
         grid-column: span 2;
+    }
+
+    > :nth-child(1)::after {
+        content: "Это всё наше";
+    }
+
+    > :nth-child(2)::after {
+        content: "И это тоже всё наше";
+    }
+
+    > :nth-child(3)::after {
+        content: "Это можно купить у нас";
+    }
+
+    > :nth-child(4)::after {
+        content: "Всё корме корзинки тут продаётся";
+    }
+
+    > :nth-child(5)::after {
+        content: "Красивое и может стать твоим";
+    }
+
+    > :nth-child(6)::after {
+        content: "Мы готовы сказать спасибо за покупку, но только всего этого";
+    }
+
+    > :nth-child(7)::after {
+        content: "Купи для себя и нас";
+    }
+
+    > :nth-child(8)::after {
+        content: "Это не наше";
     }
 }
 
