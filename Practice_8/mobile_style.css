@@ -12,7 +12,7 @@ main {
     /*height: fit-content;*/
 }
 
-nav {
+#up_nav {
     flex-direction: row-reverse;
     outline: none;
     flex-grow: 1;
@@ -126,4 +126,8 @@ ul.nav_list {
     > :nth-child(7) {
         grid-column: span 1;
     }
+}
+
+footer {
+    grid: repeat(4, fit-content(100px)) / 1fr;
 }
