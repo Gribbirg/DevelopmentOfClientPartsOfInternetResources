@@ -1,7 +1,7 @@
 "use strict"
 
 function authPrompt() {
-    let name = prompt("Кто ты?",);
+    let name = prompt("Кто ты?");
 
     if (!name ?? name === "")
         alert("Отменено")
