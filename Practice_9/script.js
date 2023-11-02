@@ -50,8 +50,9 @@ function spawnHeart(e) {
     heart.style.left = e.pageX.toString() + "px";
     heart.style.top = e.pageY.toString() + "px";
     heart.innerHTML = "❤";
-    heart.style.zIndex = "5";
+    heart.style.zIndex = "7";
     heart.style.color = "#03c700"
+    heart.style.pointerEvents = "none"
 
     document.body.appendChild(heart);
 
@@ -74,6 +75,7 @@ for (let button of document.querySelectorAll('#pic_div > div > button')) {
     button.onclick = function () {
         setColorForButton(button)
         window.onmousemove = e => spawnHeart(e);
+        spawnHearts = false;
         window.onclick = checkHeartsNeed;
     }
 }
