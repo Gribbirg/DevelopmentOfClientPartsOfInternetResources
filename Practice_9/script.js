@@ -8,7 +8,7 @@ document.getElementById("reg_form").onsubmit = function(){
         document.getElementById("reg_ans_label").innerHTML = "Попробуй ещё раз ";
 }
 
-let promtRes = prompt('Кто ты?')
+// let promtRes = prompt('Кто ты?')
 
 // if (promtRes === 'Админ')
 //     alert("Ты легенда!")

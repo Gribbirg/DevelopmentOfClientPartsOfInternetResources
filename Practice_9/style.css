@@ -2,7 +2,7 @@
 
 main {
     display: grid;
-    grid: repeat(4, fit-content(100px)) / fit-content(100px) 1fr 1fr;
+    grid: repeat(4, fit-content(100%)) / fit-content(25%) 1fr 1fr;
     grid-auto-flow: row dense;
     width: 100%;
     row-gap: 20px;
@@ -85,7 +85,7 @@ main {
 }
 
 /*панель навигации*/
-nav {
+#up_nav {
     flex-grow: 4;
     height: 100%;
     margin-right: 10px;
@@ -660,11 +660,12 @@ aside {
     }
 }
 
-#crash_div {
+.shadow_inside {
     overflow: hidden;
 
     > img {
         margin: 0;
+        z-index: 0;
     }
 
     > h3, > p, > button {
@@ -687,7 +688,7 @@ aside {
     }
 }
 
-#crash_div:hover {
+.shadow_inside:hover {
     > h3 {
         bottom: 50%;
     }
@@ -701,7 +702,7 @@ aside {
     }
 }
 
-#crash_div::before {
+.shadow_inside::before {
     transition: all 400ms ease;
     height: 100%;
     width: 100%;
@@ -709,9 +710,10 @@ aside {
     top: 0;
     content: '';
     display: block;
+    z-index: 1;
 }
 
-#crash_div:hover::before {
+.shadow_inside:hover::before {
     box-shadow: 0 -400px 400px #77ff61 inset;
 }
 
@@ -994,7 +996,7 @@ aside {
     width: calc(100vw - 100px);
     height: fit-content;
     display: grid;
-    grid: repeat(3, calc((100vw - 160px) / 8)) / repeat(4, calc((100vw - 160px) / 4));
+    grid: repeat(3, calc((100vw - 160px) / 6)) / repeat(4, calc((100vw - 160px) / 4));
     grid-auto-flow: row dense;
     justify-content: space-around;
     justify-items: center;
@@ -1002,25 +1004,81 @@ aside {
     column-gap: 20px;
     row-gap: 20px;
 
-    & img {
+    & img, & div {
+        position: relative;
         width: 100%;
         height: 100%;
     }
 
-    :nth-child(1) {
+    > div:hover::before {
+        box-shadow: 0 -250px 250px #77ff61 inset;
+    }
+
+    > div::after {
+        display: block;
+        content: "dasdffsdafdsda";
+        width: calc(100% - 20px);
+        height: fit-content;
+        position: absolute;
+        bottom: -100px;
+        left: 10px;
+        transition: all 400ms;
+        z-index: 2;
+        color: #002200;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 400;
+    }
+
+    > div:hover::after {
+        bottom: 10px;
+    }
+
+    > :nth-child(1) {
         grid-row: span 2;
     }
 
-    :nth-child(3) {
+    > :nth-child(3) {
         grid-column: span 2;
     }
 
-    :nth-child(5) {
+    > :nth-child(5) {
         grid-row: span 2;
     }
 
-    :nth-child(7) {
+    > :nth-child(7) {
         grid-column: span 2;
+    }
+
+    > :nth-child(1)::after {
+        content: "Это всё наше";
+    }
+
+    > :nth-child(2)::after {
+        content: "И это тоже всё наше";
+    }
+
+    > :nth-child(3)::after {
+        content: "Это можно купить у нас";
+    }
+
+    > :nth-child(4)::after {
+        content: "Всё корме корзинки тут продаётся";
+    }
+
+    > :nth-child(5)::after {
+        content: "Красивое и может стать твоим";
+    }
+
+    > :nth-child(6)::after {
+        content: "Мы готовы сказать спасибо за покупку, но только всего этого";
+    }
+
+    > :nth-child(7)::after {
+        content: "Купи для себя и нас";
+    }
+
+    > :nth-child(8)::after {
+        content: "Это не наше";
     }
 }
 
@@ -1030,18 +1088,20 @@ footer {
     border-radius: 30px;
     padding: 10px 20px;
     margin-top: 20px;
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid: fit-content(100%) / repeat(4, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
     justify-content: space-between;
     align-items: center;
 
     > :nth-child(1) {
         text-align: center;
-        flex-grow: 1;
 
         & * {
             color: #815500;
             text-decoration: none;
+            font-style: initial;
         }
 
         & small {
@@ -1050,60 +1110,126 @@ footer {
     }
 
     > :nth-child(2) {
-        flex-grow: 5;
+        text-align: center;
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
+        height: 100%;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        flex-grow: 1;
 
         > div {
-            position: relative;
-            padding: 20px;
-            width: 30px;
-            border-radius: 50%;
-            background: #291800;
-            transition: all 400ms;
-            overflow: hidden;
+            margin-top: 10px;
+            flex-grow: 10;
             display: flex;
-            justify-content: center;
+            flex-flow: row nowrap;
+            justify-content: space-around;
             align-items: center;
-            box-shadow: 1px 1px 2px black;
-            cursor: url("images/logo/logo_small.png"), pointer;
 
-            > a {
+            > div {
                 position: relative;
-                font-size: 30px;
-                text-decoration: none;
-                text-align: center;
-                color: white;
+                padding: 20px;
+                width: 30px;
+                border-radius: 50%;
+                background: #291800;
+                transition: all 400ms;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 1px 1px 2px black;
                 cursor: url("images/logo/logo_small.png"), pointer;
+
+                > a {
+                    position: relative;
+                    font-size: 30px;
+                    text-decoration: none;
+                    text-align: center;
+                    color: white;
+                    cursor: url("images/logo/logo_small.png"), pointer;
+                }
+
+                > a:hover {
+
+                }
+
             }
 
-            > a:hover {
-
+            > div::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: 100%;
+                background: linear-gradient(#3de42e, #52d7f1);
+                transition: all 400ms;
             }
 
-        }
+            > div:hover {
+                transform: scale(1.2);
+                box-shadow: 3px 3px 3px black;
+            }
 
-        > div::before {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            bottom: 100%;
-            background: linear-gradient(#3de42e, #52d7f1);
-            transition: all 400ms;
-        }
-
-        > div:hover {
-            transform: scale(1.2);
-            box-shadow: 3px 3px 3px black;
-        }
-
-        > div:hover::before {
-            bottom: 0;
+            > div:hover::before {
+                bottom: 0;
+            }
         }
     }
+
+    > :nth-child(3) {
+        text-align: center;
+        font-style: italic;
+
+        > ul {
+            display: grid;
+            grid: repeat(2, 2.5rem) / repeat(4, 5.5rem);
+            grid-auto-flow: column dense;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+
+            > li {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+
+                > a {
+                    text-decoration: none;
+                    color: #815500;
+                    font-style: initial;
+                }
+            }
+        }
+    }
+
+    > :nth-child(4) {
+        text-align: center;
+        font-style: italic;
+
+        > p {
+            color: #291800;
+            font-style: initial;
+        }
+    }
+}
+
+
+.footer_buttons {
+    display: block;
+    transition: transform 400ms, box-shadow 400ms;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.footer_buttons:hover {
+    background: #ffddb2;
+    backdrop-filter: blur(10px);
+    transform: scale(1.05);
+    box-shadow: 2px 2px 5px 2px grey;
 }
 
 .enter_form {
@@ -1208,7 +1334,7 @@ footer {
 
 #order_form {
     display: grid;
-    grid: repeat(10, fit-content(100px)) / 1fr 1fr;
+    grid: repeat(10, fit-content(100%)) / 1fr 1fr;
     grid-auto-flow: row dense;
     border: #5f858f 1px solid;
     border-radius: 20px;
