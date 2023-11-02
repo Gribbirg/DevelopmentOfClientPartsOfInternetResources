@@ -1010,6 +1010,28 @@ aside {
         height: 100%;
     }
 
+    > div > button {
+        --color: black;
+        position: absolute;
+        left: -30px;
+        bottom: 10px;
+        width: fit-content;
+        height: fit-content;
+        /*border: 1px black solid;*/
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    > div > button::before {
+        content: "❤";
+        color: var(--color);
+    }
+
+    > div:hover > button {
+        box-shadow: 1px 1px 2px 1px grey;
+    }
+
     > div:hover::before {
         box-shadow: 0 -250px 250px #77ff61 inset;
     }
@@ -1017,20 +1039,25 @@ aside {
     > div::after {
         display: block;
         content: "dasdffsdafdsda";
-        width: calc(100% - 20px);
+        width: calc(60% - 20px);
         height: fit-content;
         position: absolute;
         bottom: -100px;
-        left: 10px;
+        right: 10px;
         transition: all 400ms;
         z-index: 2;
         color: #002200;
         font-family: "Roboto Thin", sans-serif;
         font-weight: 400;
+        text-align: right;
     }
 
     > div:hover::after {
         bottom: 10px;
+    }
+
+    > div:hover > button {
+        left: 10px;
     }
 
     > :nth-child(1) {
