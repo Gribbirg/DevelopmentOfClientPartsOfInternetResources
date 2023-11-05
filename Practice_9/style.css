@@ -1020,7 +1020,7 @@ aside {
         border: 0;
         border-radius: 10px;
         cursor: pointer;
-        color: black;
+        color: #000000;
     }
 
     > div:hover > button {

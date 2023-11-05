@@ -34,7 +34,7 @@ document.getElementById("reg_form").onsubmit = function () {
 }
 
 function setColorForButton(button) {
-    if (button.style.getPropertyValue("--color") === "black") {
+    if (button.style.color === "black") {
         button.style.backgroundColor = "#ffdad6";
         button.style.color = "#ba1a1a";
         button.style.setProperty("--color", "#ba1a1a");
@@ -76,7 +76,7 @@ function checkHeartsNeed() {
 let spawnHearts = false;
 
 for (let button of document.querySelectorAll('#pic_div > div > button')) {
-    button.style.setProperty("--color", "black")
+    button.style.color = "black";
     button.onclick = function () {
         setColorForButton(button);
     }
