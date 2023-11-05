@@ -1268,7 +1268,7 @@ footer {
     box-shadow: 4px 4px 6px grey;
     border-radius: 30px;
     background: rgb(255, 221, 178);
-    padding: 10px;
+    padding: 10px 8px;
     z-index: 2;
 
     > h4 {
