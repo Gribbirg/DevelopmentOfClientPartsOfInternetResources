@@ -36,12 +36,14 @@ document.getElementById("reg_form").onsubmit = function () {
 function setColorForButton(button) {
     if (button.style.getPropertyValue("--color") === "black") {
         button.style.backgroundColor = "#ffdad6";
+        button.style.color = "#ba1a1a";
         button.style.setProperty("--color", "#ba1a1a");
         window.onmousemove = e => spawnHeart(e);
         spawnHearts = false;
         window.onclick = checkHeartsNeed;
     } else {
         button.style.backgroundColor = "white";
+        button.style.color = "black";
         button.style.setProperty("--color", "black");
     }
 }
