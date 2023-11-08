@@ -87,9 +87,7 @@ for (let button of document.querySelectorAll('#pic_div > div > button')) {
 }
 
 function isEmpty(object) {
-    for (let key in object)
-        return false;
-    return true;
+    return Object.keys(object).length === 0;
 }
 
 function getRandomString(maxLen) {
@@ -159,7 +157,8 @@ function CreateCaptcha() {
         },
         close: function () {
             this.state = -1;
-            this.form.style.display = "none";
+            this.form.style.opacity = "0";
+            this.form.style.pointerEvents = "none";
             let enterStyle = document.getElementById("enter_form").style;
             let regStyle = document.getElementById("reg_form").style;
             enterStyle.opacity = "1";

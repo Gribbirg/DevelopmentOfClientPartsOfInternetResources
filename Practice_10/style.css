@@ -1377,6 +1377,9 @@ footer {
     opacity: 1;
     pointer-events: initial;
     filter: blur();
+    position: absolute;
+    z-index: 3;
+    transition: opacity 400ms;
 
     > p, > label, > h4 {
         color: #001f25;
