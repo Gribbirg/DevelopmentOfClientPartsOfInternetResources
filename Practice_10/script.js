@@ -208,3 +208,11 @@ let accumulator = Accumulator(8);
 document.querySelector("#trash_div > button").onclick = function () {
     accumulator.add();
 }
+
+function truncate(str, maxlength) {
+    return (str.length <= maxlength) ? str : str.slice(0, maxlength - 3) + "...";
+}
+
+for (let p of document.querySelectorAll("#blur_card_div > div > p, #anim_line_div > div > div > p")) {
+    p.innerHTML = truncate(p.innerHTML, 170);
+}
