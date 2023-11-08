@@ -86,6 +86,12 @@ for (let button of document.querySelectorAll('#pic_div > div > button')) {
     }
 }
 
+function isEmpty(object) {
+    for (let key in object)
+        return false;
+    return true;
+}
+
 function getRandomString(maxLen) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -121,27 +127,29 @@ function CreateCaptcha() {
                 this.hint.innerHTML = "Введите текст ниже:";
                 return;
             }
-            let value = this.input.value;
+
+            let valueObj = {}
+            if (this.input.value.length !== 0)
+                valueObj.value = this.input.value;
+
+            if (isEmpty(valueObj)) {
+                alert("Введите значение!");
+                return;
+            }
+
             if (this.state === 1) {
-                if (value === this[Symbol.for("captcha_text")]) {
+                if (valueObj.value === this[Symbol.for("captcha_text")]) {
                     this.close();
                 } else {
                     this.state++;
-                    alert(`wrong!\n${value}\n${this[Symbol.for("captcha_text")]}`)
                     this.setValue(this[Symbol.for("captcha_sum")].text);
                     this.hint.innerHTML = "Вычислите выражение:";
                 }
             } else if (this.state === 2) {
-                if (Number(value) === this[Symbol.for("captcha_sum")].answer) {
+                if (Number(valueObj.value) === this[Symbol.for("captcha_sum")].answer) {
                     this.close();
                 } else {
-                    this.state = -1;
-                    alert(`wrong!\n${value}\n${this[Symbol.for("captcha_sum")].answer}`)
-                    this.setValue("Вы робот!");
-                    this.input.blur();
-                    this.hint.innerHTML = "Вы робот!";
-                    this.form.style.pointerEvents = "none";
-                    this.form.style.filter = "brightness(60%)";
+                    this.loose();
                 }
             }
         },
@@ -152,8 +160,23 @@ function CreateCaptcha() {
         close: function () {
             this.state = -1;
             this.form.style.display = "none";
-            document.getElementById("enter_form").style.display = "block";
-            document.getElementById("reg_form").style.display = "block";
+            let enterStyle = document.getElementById("enter_form").style;
+            let regStyle = document.getElementById("reg_form").style;
+            enterStyle.opacity = "1";
+            regStyle.opacity = "1";
+            enterStyle.filter = "blur()";
+            regStyle.filter = "blur()";
+            enterStyle.pointerEvents = "initial";
+            regStyle.pointerEvents = "initial";
+        },
+        loose: function () {
+            this.state = -1;
+            this.setValue("Вы робот!");
+            this.input.blur();
+            this.hint.innerHTML = "Вы робот!";
+            this.form.style.pointerEvents = "none";
+            this.form.style.filter = "brightness(60%)";
+            alert("Вы робот! Вам тут не рады...");
         }
     }
 }

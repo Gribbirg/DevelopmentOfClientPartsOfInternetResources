@@ -1256,7 +1256,10 @@ footer {
 
 .enter_form {
     /*visibility: hidden;*/
-    display: none;
+    opacity: 0.5;
+    pointer-events: none;
+    filter: blur(2px);
+    display: block;
     align-self: center;
     backdrop-filter: blur(2px);
     margin: 10px 10px;
@@ -1266,6 +1269,7 @@ footer {
     background: rgb(255, 221, 178);
     padding: 10px 8px;
     z-index: 2;
+    transition: all 400ms;
 
     > h4 {
         text-align: center;
@@ -1358,6 +1362,9 @@ footer {
 #captcha {
     display: block;
     background: #a5eeff;
+    opacity: 1;
+    pointer-events: initial;
+    filter: blur();
 
     > p, > label, > h4 {
         color: #001f25;
@@ -1377,6 +1384,7 @@ footer {
         display: inline-flex;
         flex-flow: column nowrap;
         box-shadow: 2px 2px 4px black;
+        border: #001f25 1px solid;
 
         > label {
             user-select: none;
