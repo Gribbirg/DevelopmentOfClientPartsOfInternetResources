@@ -1255,7 +1255,8 @@ footer {
 }
 
 .enter_form {
-    display: block;
+    /*visibility: hidden;*/
+    display: none;
     align-self: center;
     backdrop-filter: blur(2px);
     margin: 10px 10px;
@@ -1333,7 +1334,7 @@ footer {
         flex-flow: row wrap;
         justify-content: space-around;
 
-        > :nth-child(2) {
+        > :nth-child(3) {
             background: #ffdad6;
             border: #9f4747 1px solid;
 
@@ -1350,6 +1351,45 @@ footer {
             & button:hover {
                 background: #026e00;
             }
+        }
+    }
+}
+
+#captcha {
+    display: block;
+    background: #a5eeff;
+
+    > p, > label, > h4 {
+        color: #001f25;
+    }
+
+    > p {
+        text-align: center;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 300;
+    }
+
+    > div {
+        width: calc(100% - 20px);
+        border-radius: 20px;
+        padding: 10px;
+        background: #006877;
+        display: inline-flex;
+        flex-flow: column nowrap;
+        box-shadow: 2px 2px 4px black;
+
+        > label {
+            user-select: none;
+            color: white;
+            margin: 10px;
+        }
+
+        > input {
+            text-align: center;
+        }
+
+        > input:focus {
+            outline: 2px #a5eeff solid;
         }
     }
 }

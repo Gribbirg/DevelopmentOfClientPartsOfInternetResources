@@ -86,3 +86,81 @@ for (let button of document.querySelectorAll('#pic_div > div > button')) {
     }
 }
 
+function getRandomString(maxLen) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let counter = 0;
+    while (counter < maxLen) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+        counter += 1;
+    }
+    return result;
+}
+
+function GetRandomSumObject() {
+    let first = Math.floor(Math.random() * 100);
+    let second = Math.floor(Math.random() * 100);
+    return {
+        text: first.toString() + " + " + second.toString() + " = ",
+        answer: first + second
+    }
+}
+
+function CreateCaptcha() {
+    return {
+        state: 0,
+        [Symbol.for("captcha_text")]: getRandomString(5),
+        [Symbol.for("captcha_sum")]: new GetRandomSumObject(),
+        form: document.getElementById("captcha"),
+        hint: document.querySelector("#captcha > p"),
+        input: document.getElementById("captcha_input"),
+        check: function () {
+            if (this.state === 0) {
+                this.state++;
+                this.setValue(this[Symbol.for("captcha_text")]);
+                this.hint.innerHTML = "Введите текст ниже:";
+                return;
+            }
+            let value = this.input.value;
+            if (this.state === 1) {
+                if (value === this[Symbol.for("captcha_text")]) {
+                    this.close();
+                } else {
+                    this.state++;
+                    alert(`wrong!\n${value}\n${this[Symbol.for("captcha_text")]}`)
+                    this.setValue(this[Symbol.for("captcha_sum")].text);
+                    this.hint.innerHTML = "Вычислите выражение:";
+                }
+            } else if (this.state === 2) {
+                if (Number(value) === this[Symbol.for("captcha_sum")].answer) {
+                    this.close();
+                } else {
+                    this.state = -1;
+                    alert(`wrong!\n${value}\n${this[Symbol.for("captcha_sum")].answer}`)
+                    this.setValue("Вы робот!");
+                    this.input.blur();
+                    this.hint.innerHTML = "Вы робот!";
+                    this.form.style.pointerEvents = "none";
+                    this.form.style.filter = "brightness(60%)";
+                }
+            }
+        },
+        setValue: function (labelText) {
+            document.querySelector("& label[for=\"captcha_input\"]").innerHTML = labelText;
+            this.input.value = "";
+        },
+        close: function () {
+            this.state = -1;
+            this.form.style.display = "none";
+            document.getElementById("enter_form").style.display = "block";
+            document.getElementById("reg_form").style.display = "block";
+        }
+    }
+}
+
+let captcha = CreateCaptcha();
+captcha.check();
+
+document.getElementById("captcha").onsubmit = function () {
+    captcha.check();
+}

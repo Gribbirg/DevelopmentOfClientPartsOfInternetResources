@@ -82,7 +82,15 @@
         <p id="lk_position" class="positions"></p>
         <h2 class="part_name">Личный кабинет</h2>
         <div>
-            <form method="post" class="enter_form">
+            <form method="dialog" id="captcha" class="enter_form">
+                <h4>Для работы с ЛК пройдите тестирование</h4>
+                <p>Введите текст ниже:</p>
+                <div>
+                    <label for="captcha_input"></label>
+                    <input type="text" id="captcha_input" name="captcha_input" class="field">
+                </div>
+            </form>
+            <form method="post" id="enter_form" class="enter_form">
                 <h4>Войти</h4>
                 <label for="enter_email">Электронная почта</label>
                 <input type="email" name="enter_email" id="enter_email" class="field"><br>
@@ -90,22 +98,12 @@
                                                            class="field"><br>
                 <div>
                     <button type="submit">Войти</button>
-                    <!--            <button type="submit">Регистрация</button>-->
                 </div>
             </form>
             <form method="dialog" id="reg_form" class="enter_form">
                 <h4>Регистрация</h4>
                 <label id="reg_ans_label" for="reg_ans">Желаете пройти регистрацию?</label>
                 <input type="text" name="reg_email" id="reg_ans" class="field"><br>
-                <!--                <label for="reg_password">Пароль</label><input type="password" name="password" id="reg_password"-->
-                <!--                                                               class="field"><br>-->
-                <!--                <label for="reg_sec_password">Повторите пароль</label><input type="password" name="password"-->
-                <!--                                                                             id="reg_sec_password"-->
-                <!--                                                                             class="field"><br>-->
-                <!--                <div>-->
-                <!--                    <button type="submit">Войти</button>-->
-                <!--                    &lt;!&ndash;            <button type="submit">Регистрация</button>&ndash;&gt;-->
-                <!--                </div>-->
             </form>
         </div>
     </section>
