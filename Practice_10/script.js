@@ -187,3 +187,24 @@ captcha.check();
 document.getElementById("captcha").onsubmit = function () {
     captcha.check();
 }
+
+function Accumulator(startingValue) {
+    setTrashOut(startingValue);
+    return {
+        value: startingValue,
+        add: function () {
+            this.value += Number(prompt("Сколько добавить?"));
+            setTrashOut(this.value);
+        }
+    }
+}
+
+function setTrashOut(value) {
+    document.querySelector("#trash_div > p").innerHTML = `Сейчас в корзине: ${value}`;
+}
+
+let accumulator = Accumulator(8);
+
+document.querySelector("#trash_div > button").onclick = function () {
+    accumulator.add();
+}

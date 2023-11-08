@@ -1235,6 +1235,18 @@ footer {
             color: #291800;
             font-style: initial;
         }
+
+        > button {
+            display: inline;
+            width: fit-content;
+            padding: 5px 10px;
+            color: #815500;
+            font-style: initial;
+            outline: none;
+            border: none;
+            background: #ffddb2;
+            cursor: pointer;
+        }
     }
 }
 
