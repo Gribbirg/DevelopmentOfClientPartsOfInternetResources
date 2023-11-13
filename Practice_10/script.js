@@ -191,7 +191,7 @@ function Accumulator(startingValue) {
     setTrashOut(startingValue);
 
     this.value = startingValue;
-    this.add = function () {
+    this.read = function () {
         this.value += Number(prompt("Сколько добавить?"));
         setTrashOut(this.value);
     };
@@ -204,7 +204,7 @@ function setTrashOut(value) {
 let accumulator = new Accumulator(8);
 
 document.querySelector("#trash_div > button").onclick = function () {
-    accumulator.add();
+    accumulator.read();
 }
 
 function truncate(str, maxlength) {
