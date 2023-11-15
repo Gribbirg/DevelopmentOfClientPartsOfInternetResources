@@ -218,6 +218,7 @@ section {
     justify-content: space-around;
 
     > li {
+        position: relative;
         width: fit-content;
         margin: 10px 10px;
         background: #77ff61;
@@ -225,6 +226,15 @@ section {
         border-radius: 30px;
         border: #49a13d 1px solid;
         box-shadow: 3px 3px 4px grey;
+        overflow: hidden;
+        transition: transform 400ms;
+
+        > a {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            margin: -20px;
+        }
 
         > h4 {
             font-family: "Roboto Thin", sans-serif;
@@ -244,6 +254,10 @@ section {
                 color: #002200;
             }
         }
+    }
+
+    > li:hover {
+        transform: scale(1.05);
     }
 }
 
