@@ -17,6 +17,7 @@ function GetContent(category) {
     let content = data.find(function (item) {
         return item.id === category;
     });
+    alert(content.name);
 
 }
 
@@ -37,5 +38,5 @@ switch (category) {
         break;
 }
 
-import data from './products.json' assert {type: 'json'};
+import data from '../../products_list/products.json' assert {type: 'json'};
 GetContent(category)
