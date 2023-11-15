@@ -12,7 +12,13 @@ function setCategoryName(name) {
 }
 
 function createProductDiv(product) {
+    let div = document.createElement("div");
 
+    div.style.width = "100%";
+    div.style.height = "100px";
+    div.style.background = "#000000"
+
+    document.getElementById("products_div").appendChild(div);
 }
 
 function GetContent(category) {
@@ -20,7 +26,9 @@ function GetContent(category) {
         return item.id === category;
     });
     setCategoryName(content.name);
-    alert(content.name);
+    for (let product of content["products"]) {
+        createProductDiv(product);
+    }
 }
 
 let category = getCategory();

@@ -2,3 +2,8 @@ main {
     display: grid;
     grid: repeat(2, fit-content(100%)) / 300px 1fr;
 }
+
+#products_div {
+    display: grid;
+    grid: repeat(4, fit-content(100%)) / repeat(4, 1fr);
+}

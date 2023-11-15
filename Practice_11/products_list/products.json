@@ -12,9 +12,39 @@
     "products": [
       {
         "name": "Кама 1110004",
-        "type": "summer",
         "description": "Шина летняя \"Breeze-132 185/60R14 82H\"",
-        "cost": 3516
+        "cost": 3516,
+        "season": "летняя",
+        "size": "185/60",
+        "diameter": 14,
+        "thorns": false
+      },
+      {
+        "name": "Bars 9363924",
+        "description": "Шина летняя \"UZ200 195/65R15 91H\"",
+        "cost": 4814,
+        "season": "летняя",
+        "size": "195/50",
+        "diameter": 15,
+        "thorns": false
+      },
+      {
+        "name": "Cordiant 686208534",
+        "description": "Шина зимняя шип. \"Snow Cross 2 205/55R16 94T\"",
+        "cost": 6961,
+        "season": "зимняя",
+        "size": "205/65",
+        "diameter": 16,
+        "thorns": true
+      },
+      {
+        "name": "Matador 0424107",
+        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
+        "cost": 8503,
+        "season": "всесезонная",
+        "size": "235/70",
+        "diameter": 16,
+        "thorns": false
       }
     ]
   },
