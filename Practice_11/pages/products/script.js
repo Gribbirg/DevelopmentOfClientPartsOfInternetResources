@@ -7,6 +7,10 @@ function setCategoryName(name) {
     document.body.querySelector("#products_section .part_name").innerHTML = name;
 }
 
+function createProductDiv(product) {
+
+}
+
 let category = getCategory();
 
 switch (category) {
