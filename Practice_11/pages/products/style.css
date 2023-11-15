@@ -1,0 +1,4 @@
+main {
+    display: grid;
+    grid: repeat(2, fit-content(100%)) / 300px 1fr;
+}

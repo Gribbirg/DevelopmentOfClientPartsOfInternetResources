@@ -4,7 +4,7 @@ function getCategory() {
 
 function setCategoryName(name) {
     document.title = name;
-    document.body.querySelector("#products .part_name").innerHTML = name;
+    document.body.querySelector("#products_section .part_name").innerHTML = name;
 }
 
 let category = getCategory();
