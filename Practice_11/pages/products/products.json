@@ -1,0 +1,15 @@
+[
+  {
+    "id": "tiers",
+    "name": "Шины и диски",
+    "products": [
+      {
+        "name": "Кама 1110004",
+        "type": "summer",
+        "description": "Шина летняя \"Breeze-132 185/60R14 82H\"",
+        "cost": 3516
+      }
+    ],
+    "count": 1
+  }
+]

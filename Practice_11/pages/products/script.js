@@ -1,3 +1,5 @@
+"use strict"
+
 function getCategory() {
     return (new URLSearchParams(window.location.search)).get("category");
 }
@@ -8,6 +10,13 @@ function setCategoryName(name) {
 }
 
 function createProductDiv(product) {
+
+}
+
+function GetContent(category) {
+    let content = data.find(function (item) {
+        return item.id === category;
+    });
 
 }
 
@@ -27,3 +36,6 @@ switch (category) {
         setCategoryName("Остальное");
         break;
 }
+
+import data from './products.json' assert {type: 'json'};
+GetContent(category)
