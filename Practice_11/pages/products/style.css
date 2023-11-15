@@ -5,5 +5,7 @@ main {
 
 #products_div {
     display: grid;
-    grid: repeat(4, fit-content(100%)) / repeat(4, 1fr);
+    grid: repeat(4, fit-content(100%)) / repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
 }
