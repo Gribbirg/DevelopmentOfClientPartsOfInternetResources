@@ -45,12 +45,41 @@ function createProductDiv(product) {
     desc.style.gridArea = "desc";
     div.appendChild(desc);
 
-    let button = document.createElement("button");
-    button.innerHTML = "Купить";
-    button.className = "product_buy_button";
-    button.classList.add("arrow_button");
-    button.appendChild(document.createElement("span"))
-    div.appendChild(button);
+    let buttonDiv = document.createElement("div");
+    buttonDiv.className = "product_div_button";
+    div.appendChild(buttonDiv);
+
+    let buyButton = document.createElement("button");
+    buyButton.innerHTML = "Купить";
+    buyButton.className = "product_buy_button";
+    buyButton.classList.add("arrow_button");
+    // buyButton.style.display = "none";
+    buyButton.appendChild(document.createElement("span"))
+    buttonDiv.appendChild(buyButton);
+
+    let subButton = document.createElement("button");
+    subButton.innerHTML = "-";
+    subButton.className = "arrow_button";
+    subButton.classList.add("product_basket_button");
+    subButton.style.display = "none";
+    buttonDiv.appendChild(subButton);
+
+    let basketButton = document.createElement("button");
+    basketButton.innerHTML = "В корзине: 3 шт";
+    basketButton.className = "arrow_button";
+    basketButton.classList.add("product_basket_button");
+    basketButton.style.width = "150px";
+    basketButton.style.display = "none";
+    basketButton.appendChild(document.createElement("span"));
+    buttonDiv.appendChild(basketButton);
+
+    let addButton = document.createElement("button");
+    addButton.innerHTML = "+";
+    addButton.className = "arrow_button";
+    addButton.style.display = "none";
+    addButton.classList.add("product_basket_button");
+    buttonDiv.appendChild(addButton);
+
 }
 
 function GetContent(category) {
