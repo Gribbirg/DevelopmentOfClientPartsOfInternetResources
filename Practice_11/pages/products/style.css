@@ -9,3 +9,39 @@ main {
     column-gap: 20px;
     row-gap: 20px;
 }
+
+.product_div {
+    width: 100%;
+    height: 200px;
+    background: #fcfdf6;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 2px grey;
+    display: grid;
+    grid: repeat(3, fit-content(100%)) / fit-content(100%) 1fr fit-content(100%);
+    grid-template-areas: "pic head cost"
+                        "pic desc cost"
+                        "pic button button";
+}
+
+.product_img {
+    height: 180px;
+    margin: 10px;
+    grid-area: pic;
+}
+
+.product_cost {
+    white-space: nowrap;
+    margin: 10px;
+    font-size: 2rem;
+    grid-area: cost;
+}
+
+.product_buy_button {
+    margin: 10px;
+    grid-area: button;
+    width: 150px;
+    height: 30px;
+    justify-self: end;
+    align-self: end;
+    /*padding: 2px 50px;*/
+}

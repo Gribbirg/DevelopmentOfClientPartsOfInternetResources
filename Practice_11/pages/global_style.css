@@ -27,3 +27,41 @@ section {
     border-radius: 10px;
     box-shadow: 4px 4px 6px grey;
 }
+
+.arrow_button {
+    border: #00444f 1px solid;
+    border-radius: 30px;
+    box-shadow: 2px 2px 4px black;
+    background: #006877;
+    color: white;
+    transition: all 400ms;
+
+    > span {
+        color: white;
+        transition: all 400ms;
+        position: relative;
+    }
+
+    > span::after {
+        color: white;
+        content: '\00bb';
+        position: absolute;
+        transition: all 400ms;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+    }
+}
+
+.arrow_button:hover {
+    background: #026e00;
+
+    > span {
+        padding-right: 25px;
+    }
+
+    > span::after {
+        opacity: 1;
+        right: 0;
+    }
+}
