@@ -54,10 +54,19 @@ main {
 
 .product_basket_button {
     /*border-radius: 8px;*/
+    display: none;
     margin-left: 5px;
     margin-right: 5px;
     width: 30px;
     height: 30px;
+}
+
+.product_head {
+    grid-area: head;
+}
+
+.product_desc {
+    grid-area: desc;
 }
 
 #filters_div {

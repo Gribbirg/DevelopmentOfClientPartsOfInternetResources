@@ -12,66 +12,26 @@ function setCategoryName(name) {
 }
 
 function createProductDiv(product) {
-    let div = document.createElement("div");
-    div.className = "product_div";
-    document.getElementById("products_div").appendChild(div);
 
-    let img = document.createElement("img");
-    img.src = "../../images/products/" + product["img"];
-    img.className = "product_img";
-    div.appendChild(img);
-
-
-    let head = document.createElement("h3");
-    head.innerHTML = product.name;
-    head.style.gridArea = "head";
-    div.appendChild(head);
-
-    let cost = document.createElement("p");
-    cost.innerHTML = product["cost"].toLocaleString() + " ₽";
-    cost.className = "product_cost"
-    div.appendChild(cost);
-
-    let desc = document.createElement("p");
-    desc.innerHTML = product.description;
-    desc.style.gridArea = "desc";
-    div.appendChild(desc);
-
-    let buttonDiv = document.createElement("div");
-    buttonDiv.className = "product_div_button";
-    div.appendChild(buttonDiv);
-
-    let buyButton = document.createElement("button");
-    buyButton.innerHTML = "Купить";
-    buyButton.className = "product_buy_button";
-    buyButton.classList.add("arrow_button");
-    // buyButton.style.display = "none";
-    buyButton.appendChild(document.createElement("span"))
-    buttonDiv.appendChild(buyButton);
-
-    let subButton = document.createElement("button");
-    subButton.innerHTML = "-";
-    subButton.className = "arrow_button";
-    subButton.classList.add("product_basket_button");
-    subButton.style.display = "none";
-    buttonDiv.appendChild(subButton);
-
-    let basketButton = document.createElement("button");
-    basketButton.innerHTML = "В корзине: 3 шт";
-    basketButton.className = "arrow_button";
-    basketButton.classList.add("product_basket_button");
-    basketButton.style.width = "150px";
-    basketButton.style.display = "none";
-    basketButton.appendChild(document.createElement("span"));
-    buttonDiv.appendChild(basketButton);
-
-    let addButton = document.createElement("button");
-    addButton.innerHTML = "+";
-    addButton.className = "arrow_button";
-    addButton.style.display = "none";
-    addButton.classList.add("product_basket_button");
-    buttonDiv.appendChild(addButton);
-
+    document.getElementById("products_div").innerHTML +=
+        `<div class="product_div">
+            <img src=${"../../images/products/" + product["img"]} alt=${product.name} class="product_img"/>
+            <h3 class="product_head">${product.name}</h3>
+            <p class="product_desc">${product.description}</p>
+            <p class="product_cost">${product["cost"].toLocaleString() + " ₽"}</p>
+            <div class="product_div_button">
+                <button class="product_buy_button arrow_button">
+                    Купить
+                    <span></span>
+                </button>
+                <button class="product_basket_button arrow_button">-</button>
+                <button class="product_basket_button arrow_button" style="width: 150px">
+                    В корзине 3 шт
+                    <span></span>
+                </button>
+                <button class="product_basket_button arrow_button">+</button>
+            </div>
+        </div>`;
 }
 
 function findCategory(category) {
