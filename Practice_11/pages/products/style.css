@@ -1,6 +1,14 @@
 main {
     display: grid;
-    grid: repeat(2, fit-content(100%)) / 300px 1fr;
+    grid: repeat(3, fit-content(100%)) / 300px 1fr;
+    grid-template-areas: "catalog catalog"
+                        "sort products"
+                        "filter products";
+    align-items: start;
+}
+
+#products_section {
+    grid-area: products;
 }
 
 #products_div {
@@ -77,10 +85,15 @@ main {
     grid-area: desc;
 }
 
+#filters_section {
+    height: fit-content;
+}
+
 #filters_div {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    grid-area: filter;
 
     > * {
         margin-bottom: 10px;
@@ -114,6 +127,11 @@ main {
 }
 
 #catalog {
-    grid-column: 2 span;
+    grid-area: catalog;
     height: initial;
+}
+
+#sort_section {
+    grid-area: sort;
+    height: fit-content;
 }

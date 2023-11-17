@@ -56,6 +56,13 @@ function addCategory(category) {
     }
 }
 
+function getFilterList(list, a, b) {
+    return list.filter(function (item) {
+        let cost = Number(item["cost"]);
+        return (cost >= a && cost <= b);
+    });
+}
+
 import data from '../../products_list/products.json' assert {type: 'json'};
 
 let category = getCategory();
@@ -70,10 +77,7 @@ document.getElementById("confirm_filter_button").onclick = function () {
     let costFrom = Number(document.getElementById("from_cost_filter").value);
     let costTo = Number(document.getElementById("to_cost_filter").value);
     if (costFrom && costTo) {
-        content = content.filter(function (item) {
-            let cost = Number(item["cost"]);
-            return (cost >= costFrom && cost <= costTo);
-        });
+        content = getFilterList(content, costFrom, costTo);
     }
 
     setContent(content);
