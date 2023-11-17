@@ -87,9 +87,21 @@ function setCategoryFilter(category) {
 function addCategory(category) {
     let content = findCategory(category);
     setCategoryName(content.name);
-    setCategoryFilter(content.id);
     for (let product of content["products"]) {
         createProductDiv(product);
+    }
+}
+
+function addFilterCategories() {
+    let count = 0;
+    for (let input of document.querySelectorAll("#category_filter > div > input")) {
+        if (input.checked) {
+            addCategory(input.id.split("_")[0]);
+            count++;
+        }
+    }
+    if (count !== 1) {
+        setCategoryName("Товары");
     }
 }
 
@@ -97,13 +109,9 @@ import data from '../../products_list/products.json' assert {type: 'json'};
 
 let category = getCategory();
 addCategory(category);
+setCategoryFilter(category);
 
-for (let input of document.querySelectorAll("#category_filter > div > input")) {
-    input.onclick = function () {
-        if (input.checked) {
-            addCategory(input.id.split("_")[0]);
-        } else {
-
-        }
-    }
+document.getElementById("confirm_filter_button").onclick = function () {
+    document.getElementById("products_div").innerHTML = "";
+    addFilterCategories();
 }

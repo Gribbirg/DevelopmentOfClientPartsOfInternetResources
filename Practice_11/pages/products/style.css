@@ -59,3 +59,18 @@ main {
     width: 30px;
     height: 30px;
 }
+
+#filters_div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    > * {
+        margin-bottom: 10px;
+    }
+}
+
+#confirm_filter_button {
+    padding: 5px 10px;
+    width: 150px;
+}
