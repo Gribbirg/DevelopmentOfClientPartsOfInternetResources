@@ -106,3 +106,13 @@ section {
 .field:focus {
     outline: #006877 2px solid;
 }
+
+.legend {
+    border: #002200 1px solid;
+    border-radius: 10px;
+    background: #006877;
+    padding: 0.1rem 0.5rem;
+    color: #ffffff;
+    width: max-content;
+    font-weight: 700;
+}
