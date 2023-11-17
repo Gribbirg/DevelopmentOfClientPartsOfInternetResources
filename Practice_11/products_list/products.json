@@ -4,14 +4,40 @@
     "name": "Масло и автохимия",
     "products": [
       {
-        "name": "Matador 0424107",
-        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
-        "cost": 8503,
-        "img": "Matador_0424107.png",
-        "season": "всесезонная",
-        "size": "235/70",
-        "diameter": 16,
-        "thorns": false
+        "name": "Lukoil 3148675",
+        "description": "Масло моторное синтетическое \"Genesis Armortech 5W-40\", 4л",
+        "cost": 2955,
+        "img": "Lukoil_3148675.png",
+        "compound": "синтетическое",
+        "viscosity": "5W-40",
+        "volume": 4
+      },
+      {
+        "name": "Hyundai Kia 05100-00441",
+        "description": "Масло моторное синтетическое \"Turbo SYN Gasoline 5W-30\", 4л",
+        "cost": 5809,
+        "img": "Hyundai_Kia_05100-00441.png",
+        "compound": "синтетическое",
+        "viscosity": "5W-30",
+        "volume": 4
+      },
+      {
+        "name": "Mobil 150548",
+        "description": "Масло моторное полусинтетическое \"Super 2000 X1 10W-40\", 4л\n",
+        "cost": 2406,
+        "img": "Mobil_150548.png",
+        "compound": "полусинтетическое",
+        "viscosity": "10W-40",
+        "volume": 4
+      },
+      {
+        "name": "Волга-Ойл 800823",
+        "description": "Масло моторное минеральное \"Супер 15W-40\", 5л",
+        "cost": 774,
+        "img": "VolgaOil_800823.png",
+        "compound": "минеральное",
+        "viscosity": "15W-40",
+        "volume": 5
       }
     ]
   },

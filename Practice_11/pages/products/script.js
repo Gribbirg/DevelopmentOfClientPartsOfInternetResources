@@ -14,7 +14,9 @@ function setCategoryName(name) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div">
-            <img src=${"../../images/products/" + product["img"]} alt=${product.name} class="product_img"/>
+            <div class="product_img_div">
+                <img src=${"../../images/products/" + product["img"]} alt=${product.name}/>
+            </div>
             <h3 class="product_head">${product.name}</h3>
             <p class="product_desc">${product.description}</p>
             <p class="product_cost">${product["cost"].toLocaleString() + " ₽"}</p>
