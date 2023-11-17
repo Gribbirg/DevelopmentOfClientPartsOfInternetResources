@@ -15,28 +15,51 @@
 </head>
 <body>
 <main>
+    <section id="catalog" class="part">
+        <!--Списки-->
+        <p id="catalog_position" class="positions"></p>
+        <h2 class="part_name">Каталог</h2>
+        <ul id="catalog_list">
+            <li>
+                <a href="index.html?category=chemistry"></a>
+                <h4>Масло и автохимия</h4>
+                <ul>
+                    <li>Масла</li>
+                    <li>Жидкости для охлаждения</li>
+                    <li>Жидкости для омывателя</li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html?category=tiers"></a>
+                <h4>Шины, диски</h4>
+                <ul>
+                    <li>Шины</li>
+                    <li>Диски</li>
+                    <li>Колпачки</li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html?category=electronics"></a>
+                <h4>Автоэлектроника</h4>
+                <ul>
+                    <li>Лампы</li>
+                    <li>Аккумуляторы</li>
+                    <li>Предохранители</li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html?category=other"></a>
+                <h4>Остальное</h4>
+                <ul>
+                    <li>Инструменты</li>
+                    <li>Автоаксессуары</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
     <section id="filters_section">
         <h2 class="part_name">Фильтры</h2>
         <div id="filters_div">
-            <fieldset class="field" id="category_filter">
-                <legend>Тип</legend>
-                <div>
-                    <input type="checkbox" name="chemistry_input" id="chemistry_input">
-                    <label for="chemistry_input">Масло и автохимия</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="tiers_input" id="tiers_input">
-                    <label for="tiers_input">Шины, диски</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="electronics_input" id="electronics_input">
-                    <label for="electronics_input">Автоэлектроника</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="other_input" id="other_input">
-                    <label for="other_input">Остальное</label>
-                </div>
-            </fieldset>
             <fieldset class="field" id="cost_filter">
                 <legend class="legend">Цена:</legend>
                 <div>

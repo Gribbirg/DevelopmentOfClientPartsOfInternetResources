@@ -46,10 +46,6 @@ function findCategory(category) {
     });
 }
 
-function setCategoryFilter(category) {
-    document.getElementById(category + "_input").checked = true;
-}
-
 function addCategory(category) {
     let content = findCategory(category);
     setCategoryName(content.name);
@@ -58,36 +54,16 @@ function addCategory(category) {
     }
 }
 
-function addFilterCategories() {
-    let list = [];
-    let count = 0;
-    let category;
-    for (let input of document.querySelectorAll("#category_filter > div > input")) {
-        if (input.checked) {
-            category = findCategory(input.id.split("_")[0]);
-            list.push.apply(list, category["products"]);
-            count++;
-        }
-    }
-    if (count === 1) {
-        setCategoryName(category.name);
-    } else {
-        setCategoryName("Товары")
-    }
-    return list;
-}
-
 import data from '../../products_list/products.json' assert {type: 'json'};
 
 let category = getCategory();
 addCategory(category);
-setCategoryFilter(category);
 
 let content = findCategory(category)["products"];
 setContent(content);
 
 document.getElementById("confirm_filter_button").onclick = function () {
-    content = addFilterCategories();
+    content = findCategory(category)["products"];
 
     let costFrom = Number(document.getElementById("from_cost_filter").value);
     let costTo = Number(document.getElementById("to_cost_filter").value);
@@ -97,5 +73,6 @@ document.getElementById("confirm_filter_button").onclick = function () {
             return (cost >= costFrom && cost <= costTo);
         });
     }
+
     setContent(content);
 }

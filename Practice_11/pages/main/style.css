@@ -185,59 +185,6 @@ section {
     }
 }
 
-/*список каталога*/
-#catalog_list {
-    display: flex;
-    flex-flow: row wrap;
-    list-style-type: none;
-    padding: 0;
-    align-items: start;
-    align-content: flex-end;
-    justify-content: space-around;
-
-    > li {
-        position: relative;
-        width: fit-content;
-        margin: 10px 10px;
-        background: #77ff61;
-        padding: 20px;
-        border-radius: 30px;
-        border: #49a13d 1px solid;
-        box-shadow: 3px 3px 4px grey;
-        overflow: hidden;
-        transition: transform 400ms;
-
-        > a {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            margin: -20px;
-        }
-
-        > h4 {
-            font-family: "Roboto Thin", sans-serif;
-            font-weight: 500;
-            font-size: 20px;
-            text-decoration: underline;
-            margin: 0 auto 20px;
-            color: #002200;
-        }
-
-        > ul {
-
-            list-style: revert;
-            padding-left: 20px;
-
-            & * {
-                color: #002200;
-            }
-        }
-    }
-
-    > li:hover {
-        transform: scale(1.05);
-    }
-}
 
 /*Цитата*/
 article {

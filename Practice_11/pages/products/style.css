@@ -104,3 +104,8 @@ main {
         }
     }
 }
+
+#catalog {
+    grid-column: 2 span;
+    height: initial;
+}
