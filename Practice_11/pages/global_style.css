@@ -66,3 +66,43 @@ section {
         right: 0;
     }
 }
+
+.field {
+    border: #002200 1px solid;
+    border-radius: 10px;
+    background: #fcfdf6;
+    padding: 5px 10px;
+    display: inline-flex;
+    flex-flow: row wrap;
+    width: 90%;
+    height: min-content;
+
+    > legend {
+        border: #002200 1px solid;
+        border-radius: 10px;
+        background: #006877;
+        padding: 0.1rem 0.5rem;
+        color: #ffffff;
+        width: max-content;
+        font-weight: 700;
+    }
+
+    > div {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        padding: 0;
+        margin: 0;
+        width: 13rem;
+        height: fit-content;
+
+        & * {
+            color: #001f25;
+            font-family: "Roboto Thin", sans-serif;
+        }
+
+    }
+}
+
+.field:focus {
+    outline: #006877 2px solid;
+}
