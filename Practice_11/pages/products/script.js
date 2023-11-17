@@ -74,22 +74,36 @@ function createProductDiv(product) {
 
 }
 
-function GetContent(category) {
-    let content = data.find(function (item) {
+function findCategory(category) {
+    return data.find(function (item) {
         return item.id === category;
     });
+}
+
+function setCategoryFilter(category) {
+    document.getElementById(category + "_input").checked = true;
+}
+
+function addCategory(category) {
+    let content = findCategory(category);
     setCategoryName(content.name);
+    setCategoryFilter(content.id);
     for (let product of content["products"]) {
         createProductDiv(product);
     }
 }
 
-let category = getCategory();
-
-switch (category) {
-
-}
-
 import data from '../../products_list/products.json' assert {type: 'json'};
 
-GetContent(category)
+let category = getCategory();
+addCategory(category);
+
+for (let input of document.querySelectorAll("#category_filter > div > input")) {
+    input.onclick = function () {
+        if (input.checked) {
+            addCategory(input.id.split("_")[0]);
+        } else {
+
+        }
+    }
+}

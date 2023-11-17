@@ -3,7 +3,16 @@
     "id": "chemistry",
     "name": "Масло и автохимия",
     "products": [
-
+      {
+        "name": "Matador 0424107",
+        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
+        "cost": 8503,
+        "img": "Matador_0424107.png",
+        "season": "всесезонная",
+        "size": "235/70",
+        "diameter": 16,
+        "thorns": false
+      }
     ]
   },
   {
@@ -56,13 +65,32 @@
     "id": "electronics",
     "name": "Автоэлектроника",
     "products": [
+      {
+        "name": "Matador 0424107",
+        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
+        "cost": 8503,
+        "img": "Matador_0424107.png",
+        "season": "всесезонная",
+        "size": "235/70",
+        "diameter": 16,
+        "thorns": false
+      }
     ]
   },
   {
     "id": "other",
     "name": "Остальное",
     "products": [
-
+      {
+        "name": "Matador 0424107",
+        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
+        "cost": 8503,
+        "img": "Matador_0424107.png",
+        "season": "всесезонная",
+        "size": "235/70",
+        "diameter": 16,
+        "thorns": false
+      }
     ]
   }
 ]
