@@ -35,6 +35,7 @@ section {
     background: #006877;
     color: white;
     transition: all 400ms;
+    cursor: pointer;
 
     > span {
         color: white;

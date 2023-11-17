@@ -11,14 +11,6 @@ function setCategoryName(name) {
     }
 }
 
-function betterNumber(num) {
-    let ans = (String)(num % 1000);
-    while (num > 0) {
-        num = Math.floor(num / 1000);
-        ans = (num % 1000) + " " + ans;
-    }
-}
-
 function createProductDiv(product) {
     let div = document.createElement("div");
     div.className = "product_div";
