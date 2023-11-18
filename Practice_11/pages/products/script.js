@@ -75,11 +75,25 @@ function offSortDivs(onDiv) {
 }
 
 function onIfOffDirInputs(div) {
-    let list = document.querySelectorAll(`#${div.id} > div > input`)
+    let list = document.querySelectorAll(`#${div.id} > div > input`);
     for (let input of list) {
         if (input.checked) return;
     }
     list[0].checked = true;
+}
+
+function sortContent(content, sortType, dir) {
+    let mn;
+    if (dir === "up") {
+        mn = 1;
+    } else {
+        mn = -1;
+    }
+    content.sort(function (a, b) {
+        if (a[sortType] > b[sortType]) return 1 * mn;
+        if (a[sortType] === b[sortType]) return 0;
+        if (a[sortType] < b[sortType]) return -1 * mn;
+    });
 }
 
 import data from '../../products_list/products.json' assert {type: 'json'};
@@ -88,6 +102,7 @@ let category = getCategory();
 addCategory(category);
 
 let content = findCategory(category)["products"];
+sortContent(content, "cost", "up");
 setContent(content);
 
 document.getElementById("confirm_filter_button").onclick = function () {
@@ -107,6 +122,11 @@ for (let div of document.querySelectorAll(".sort_divs")) {
         offSortDivs(div);
         onIfOffDirInputs(div);
         div.style.background = "#026e00";
-
+        for (let input of document.querySelectorAll(`#${div.id} > div > input`)) {
+            if (input.checked) {
+                sortContent(content, input.id.split("_")[0], input.id.split("_")[2]);
+            }
+        }
+        setContent(content);
     }
 }
