@@ -89,11 +89,10 @@ main {
     height: fit-content;
 }
 
-#filters_div {
+.sort_filters_div {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    grid-area: filter;
 
     > * {
         margin-bottom: 10px;
@@ -134,4 +133,42 @@ main {
 #sort_section {
     grid-area: sort;
     height: fit-content;
+}
+
+.sort_divs {
+    background: #006877;
+    padding: 2px 15px;
+    border: #00444f 1px solid;
+    border-radius: 30px;
+    box-shadow: 2px 2px 4px black;
+    transition: all 400ms;
+    cursor: pointer;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+
+    > div > input {
+        display: none;
+    }
+
+    > div > label, > p {
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        /*background: black;*/
+        padding: 5px 10px;
+        border-radius: 10px;
+        height: fit-content;
+    }
+
+    > p {
+        margin: 10px;
+    }
+}
+
+.sort_type_input:checked + label {
+    box-shadow: inset 0 0 10px 2px black;
 }
