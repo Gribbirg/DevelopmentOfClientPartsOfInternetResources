@@ -168,12 +168,6 @@ ul.nav_list {
     }
 }
 
-/*якоря для навигации*/
-p.positions {
-    position: relative;
-    bottom: 100px;
-}
-
 /*Секции*/
 section {
     > dl > dt {

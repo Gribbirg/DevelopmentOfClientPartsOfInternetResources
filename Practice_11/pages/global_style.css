@@ -169,3 +169,8 @@ section {
         transform: scale(1.05);
     }
 }
+
+p.positions {
+    position: relative;
+    bottom: 100px;
+}

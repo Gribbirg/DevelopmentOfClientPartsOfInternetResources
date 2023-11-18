@@ -26,10 +26,10 @@ function createProductDiv(product) {
                     <span></span>
                 </button>
                 <button class="product_basket_button arrow_button cart_sub_button" id="${product.id}+cart_sub_button">-</button>
-                <button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button" style="width: 150px">
+                <a href="#cart_position"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
                     В корзине 1 шт
                     <span></span>
-                </button>
+                </button></a>
                 <button class="product_basket_button arrow_button cart_add_button" id="${product.id}+cart_add_button">+</button>
             </div>
         </div>`;
@@ -169,7 +169,7 @@ function setProductBuyButtonsState(id, state) {
 }
 
 function setProductCartButtonText(id, count) {
-    document.getElementById(`${id}+cart_button`).innerHTML = `В корзине ${count} шт`;
+    document.getElementById(`${id}+cart_button`).innerHTML = `<a href="#cart_position"></a>В корзине ${count} шт<span></span>`;
 }
 
 function setProductsButtonsOnClick() {
@@ -180,7 +180,9 @@ function setProductsButtonsOnClick() {
             setProductBuyButtonsState(id, true);
         };
     }
+    for (let button of document.querySelectorAll(".cart_button")) {
 
+    }
     for (let button of document.querySelectorAll(".cart_add_button")) {
         button.onclick = function () {
             let id = button.id.split("+")[0];
