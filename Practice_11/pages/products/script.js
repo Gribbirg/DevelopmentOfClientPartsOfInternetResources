@@ -37,8 +37,15 @@ function createProductDiv(product) {
 
 function setContent(content) {
     document.getElementById("products_div").innerHTML = "";
-    for (let product of content) {
-        createProductDiv(product);
+    if (content.length !== 0) {
+        for (let product of content) {
+            createProductDiv(product);
+        }
+    } else {
+        document.getElementById("products_div").innerHTML +=
+            `
+            <p>По заданным критериям ничего не найдено.</p>
+            `;
     }
 }
 
