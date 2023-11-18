@@ -40,7 +40,13 @@ function setContent(content) {
     if (content.length !== 0) {
         for (let product of content) {
             createProductDiv(product);
+            let cartEl = findInCart(cart, product.id);
+            if (cartEl !== undefined) {
+                setProductBuyButtonsState(product.id, true);
+                setProductCartButtonText(product.id, cartEl.count);
+            }
         }
+        setProductsButtonsOnClick();
     } else {
         document.getElementById("products_div").innerHTML +=
             `
@@ -116,6 +122,7 @@ function onSortDivClickListener(div) {
 }
 
 import data from '../../products/products.json' assert {type: 'json'};
+let cart = [];
 let category = getCategory();
 addCategory(category);
 
@@ -147,6 +154,57 @@ function findInCart(cart, id) {
     });
 }
 
+function setProductBuyButtonsState(id, state) {
+    if (state) {
+        document.getElementById(`${id}+buy_button`).style.display = "none";
+        document.getElementById(`${id}+cart_button`).style.display = "initial";
+        document.getElementById(`${id}+cart_add_button`).style.display = "initial";
+        document.getElementById(`${id}+cart_sub_button`).style.display = "initial";
+    } else {
+        document.getElementById(`${id}+buy_button`).style.display = "initial";
+        document.getElementById(`${id}+cart_button`).style.display = "none";
+        document.getElementById(`${id}+cart_add_button`).style.display = "none";
+        document.getElementById(`${id}+cart_sub_button`).style.display = "none";
+    }
+}
+
+function setProductCartButtonText(id, count) {
+    document.getElementById(`${id}+cart_button`).innerHTML = `В корзине ${count} шт`;
+}
+
+function setProductsButtonsOnClick() {
+    for (let button of document.querySelectorAll(".product_buy_button")) {
+        button.onclick = function () {
+            let id = button.id.split("+")[0];
+            cart.push({id: id, category: category, count: 1});
+            setProductBuyButtonsState(id, true);
+        };
+    }
+
+    for (let button of document.querySelectorAll(".cart_add_button")) {
+        button.onclick = function () {
+            let id = button.id.split("+")[0];
+            let product = findInCart(cart, id);
+            product.count++;
+            setProductCartButtonText(id, product.count);
+        }
+    }
+
+    for (let button of document.querySelectorAll(".cart_sub_button")) {
+        button.onclick = function () {
+            let id = button.id.split("+")[0];
+            let product = findInCart(cart, id);
+            product.count--;
+            if (product.count !== 0) {
+                setProductCartButtonText(id, product.count);
+            } else {
+                removeFromCart(cart, id);
+                setProductBuyButtonsState(id, false);
+            }
+        }
+    }
+}
+
 function removeFromCart(cart, id) {
     let pos = cart.findIndex(function (item) {
         return item.id === id;
@@ -154,41 +212,5 @@ function removeFromCart(cart, id) {
     cart.splice(pos);
 }
 
-let cart = [];
 
-for (let button of document.querySelectorAll(".product_buy_button")) {
-    button.onclick = function () {
-        let id = button.id.split("+")[0];
-        cart.push({id: id, category: category, count: 1});
-        button.style.display = "none";
-        document.getElementById(`${id}+cart_button`).style.display = "initial";
-        document.getElementById(`${id}+cart_add_button`).style.display = "initial";
-        document.getElementById(`${id}+cart_sub_button`).style.display = "initial";
-    };
-}
 
-for (let button of document.querySelectorAll(".cart_add_button")) {
-    button.onclick = function () {
-        let id = button.id.split("+")[0];
-        let product = findInCart(cart, id);
-        product.count++;
-        document.getElementById(`${id}+cart_button`).innerHTML = `В корзине ${product.count} шт`;
-    }
-}
-
-for (let button of document.querySelectorAll(".cart_sub_button")) {
-    button.onclick = function () {
-        let id = button.id.split("+")[0];
-        let product = findInCart(cart, id);
-        product.count--;
-        if (product.count !== 0) {
-            document.getElementById(`${id}+cart_button`).innerHTML = `В корзине ${product.count} шт<span></span>`;
-        } else {
-            removeFromCart(cart, id);
-            document.getElementById(`${id}+buy_button`).style.display = "initial";
-            document.getElementById(`${id}+cart_button`).style.display = "none";
-            document.getElementById(`${id}+cart_add_button`).style.display = "none";
-            document.getElementById(`${id}+cart_sub_button`).style.display = "none";
-        }
-    }
-}
