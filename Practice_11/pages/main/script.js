@@ -214,3 +214,6 @@ function truncate(str, maxlength) {
 for (let p of document.querySelectorAll("#blur_card_div > div > p, #anim_line_div > div > div > p")) {
     p.innerHTML = truncate(p.innerHTML, 170);
 }
+
+window.cart = [];
+alert(cart.length)

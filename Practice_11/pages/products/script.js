@@ -14,23 +14,23 @@ function setCategoryName(name) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div">
+            <h3 class="product_head">${product.name}</h3>
             <div class="product_img_div">
                 <img src=${"../../images/products/" + product["img"]} alt=${product.name}/>
             </div>
-            <h3 class="product_head">${product.name}</h3>
             <p class="product_desc">${product.description}</p>
             <p class="product_cost">${product["cost"].toLocaleString() + " ₽"}</p>
             <div class="product_div_button">
-                <button class="product_buy_button arrow_button">
+                <button class="product_buy_button arrow_button" id="${product.id}+buy_button">
                     Купить
                     <span></span>
                 </button>
-                <button class="product_basket_button arrow_button">-</button>
-                <button class="product_basket_button arrow_button" style="width: 150px">
-                    В корзине 3 шт
+                <button class="product_basket_button arrow_button" id="${product.id}+cart_sub_button">-</button>
+                <button class="product_basket_button arrow_button" id="${product.id}+cart_button" style="width: 150px">
+                    В корзине 1 шт
                     <span></span>
                 </button>
-                <button class="product_basket_button arrow_button">+</button>
+                <button class="product_basket_button arrow_button" id="${product.id}+cart_add_button">+</button>
             </div>
         </div>`;
 }
@@ -115,8 +115,7 @@ function onSortDivClickListener(div) {
     setContent(content);
 }
 
-import data from '../../products_list/products.json' assert {type: 'json'};
-
+import data from '../../products/products.json' assert {type: 'json'};
 let category = getCategory();
 addCategory(category);
 
@@ -139,5 +138,18 @@ document.getElementById("confirm_filter_button").onclick = function () {
 for (let div of document.querySelectorAll(".sort_divs")) {
     div.onclick = function () {
         onSortDivClickListener(div);
+    };
+}
+
+for (let button of document.querySelectorAll(".product_buy_button")) {
+    button.onclick = function () {
+        let id = button.id.split("+")[0];
+        // window.cart.push({id: id, category: category, count: 1});
+
+        button.style.display = "none";
+
+        document.getElementById(`${id}+cart_button`).style.display = "initial";
+        document.getElementById(`${id}+cart_add_button`).style.display = "initial";
+        document.getElementById(`${id}+cart_sub_button`).style.display = "initial";
     };
 }
