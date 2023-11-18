@@ -63,6 +63,25 @@ function getFilterList(list, a, b) {
     });
 }
 
+function offSortDivs(onDiv) {
+    for (let div of document.querySelectorAll(".sort_divs")) {
+        div.style.background = "#006877";
+        if (div.id !== onDiv.id) {
+            for (let input of document.querySelectorAll(`#${div.id} > div > input`)) {
+                input.checked = false;
+            }
+        }
+    }
+}
+
+function onIfOffDirInputs(div) {
+    let list = document.querySelectorAll(`#${div.id} > div > input`)
+    for (let input of list) {
+        if (input.checked) return;
+    }
+    list[0].checked = true;
+}
+
 import data from '../../products_list/products.json' assert {type: 'json'};
 
 let category = getCategory();
@@ -81,4 +100,13 @@ document.getElementById("confirm_filter_button").onclick = function () {
     }
 
     setContent(content);
+}
+
+for (let div of document.querySelectorAll(".sort_divs")) {
+    div.onclick = function () {
+        offSortDivs(div);
+        onIfOffDirInputs(div);
+        div.style.background = "#026e00";
+
+    }
 }
