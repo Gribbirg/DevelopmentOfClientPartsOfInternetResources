@@ -212,5 +212,8 @@ function removeFromCart(cart, id) {
     cart.splice(pos);
 }
 
-
+document.getElementById("clear_button").onclick = function () {
+    cart = [];
+    setContent(content);
+}
 
