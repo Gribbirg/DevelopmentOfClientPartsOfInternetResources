@@ -96,13 +96,25 @@ function sortContent(content, sortType, dir) {
     });
 }
 
+function onSortDivClickListener(div) {
+    offSortDivs(div);
+    onIfOffDirInputs(div);
+    div.style.background = "#026e00";
+    for (let input of document.querySelectorAll(`#${div.id} > div > input`)) {
+        if (input.checked) {
+            sortContent(content, input.id.split("_")[0], input.id.split("_")[2]);
+        }
+    }
+    setContent(content);
+}
+
 import data from '../../products_list/products.json' assert {type: 'json'};
 
 let category = getCategory();
 addCategory(category);
 
 let content = findCategory(category)["products"];
-sortContent(content, "cost", "up");
+onSortDivClickListener(document.getElementById("cost_sort"));
 setContent(content);
 
 document.getElementById("confirm_filter_button").onclick = function () {
@@ -119,14 +131,6 @@ document.getElementById("confirm_filter_button").onclick = function () {
 
 for (let div of document.querySelectorAll(".sort_divs")) {
     div.onclick = function () {
-        offSortDivs(div);
-        onIfOffDirInputs(div);
-        div.style.background = "#026e00";
-        for (let input of document.querySelectorAll(`#${div.id} > div > input`)) {
-            if (input.checked) {
-                sortContent(content, input.id.split("_")[0], input.id.split("_")[2]);
-            }
-        }
-        setContent(content);
-    }
+        onSortDivClickListener(div);
+    };
 }
