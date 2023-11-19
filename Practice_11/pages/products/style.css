@@ -120,6 +120,7 @@ section {
         flex-flow: row nowrap;
         align-items: center;
         margin-bottom: 5px;
+
         > label {
             width: 1.8rem;
         }
@@ -189,9 +190,13 @@ section {
 
 #cart_section {
     display: grid;
-    grid: fit-content(100%) 300px / 0 1fr fit-content(100%);
+    grid: fit-content(100%) 300px fit-content(100%) / 0 1fr fit-content(100%);
     flex-flow: row wrap;
     align-items: center;
+
+    > h3 {
+        grid-column: 1 span;
+    }
 
     > div {
         grid-column: 3 span;
@@ -204,6 +209,10 @@ section {
         width: 150px;
         justify-self: left;
     }
+}
+
+#sum_p {
+    grid-column: 2 span;
 }
 
 #cart_div {

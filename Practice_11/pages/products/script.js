@@ -270,12 +270,21 @@ function createCartElement(cartElement, product) {
     ;
 }
 
+function setSumText(cart) {
+    let sum = 0;
+    cart.forEach(function (item) {
+        sum += (getProduct(item["category"], item.id)["cost"] * item.count);
+    });
+    document.getElementById("sum_p").innerHTML = `Всего: ${sum} ₽`
+}
+
 function setCart(cart) {
     document.getElementById("cart_div").innerHTML = "";
     for (let element of cart) {
         createCartElement(element, getProduct(element.category, element.id));
     }
     setCartElementButtonsOnClick();
+    setSumText(cart);
 }
 
 document.getElementById("clear_button").onclick = function () {
