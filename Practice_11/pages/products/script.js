@@ -164,21 +164,42 @@ function findInCart(cart, id) {
 }
 
 function setProductBuyButtonsState(id, state) {
-    if (state) {
-        document.getElementById(`${id}+buy_button`).style.display = "none";
-        document.getElementById(`${id}+cart_button`).style.display = "initial";
-        document.getElementById(`${id}+cart_add_button`).style.display = "initial";
-        document.getElementById(`${id}+cart_sub_button`).style.display = "initial";
-    } else {
-        document.getElementById(`${id}+buy_button`).style.display = "initial";
-        document.getElementById(`${id}+cart_button`).style.display = "none";
-        document.getElementById(`${id}+cart_add_button`).style.display = "none";
-        document.getElementById(`${id}+cart_sub_button`).style.display = "none";
+    if (document.getElementById(`${id}+buy_button`)) {
+        if (state) {
+            document.getElementById(`${id}+buy_button`).style.display = "none";
+            document.getElementById(`${id}+cart_button`).style.display = "initial";
+            document.getElementById(`${id}+cart_add_button`).style.display = "initial";
+            document.getElementById(`${id}+cart_sub_button`).style.display = "initial";
+        } else {
+            document.getElementById(`${id}+buy_button`).style.display = "initial";
+            document.getElementById(`${id}+cart_button`).style.display = "none";
+            document.getElementById(`${id}+cart_add_button`).style.display = "none";
+            document.getElementById(`${id}+cart_sub_button`).style.display = "none";
+        }
     }
 }
 
 function setProductCartButtonText(id, count) {
     document.getElementById(`${id}+cart_button`).innerHTML = `<a href="#cart_position"></a>В корзине ${count} шт<span></span>`;
+}
+
+function subCount(cart, id) {
+    let product = findInCart(cart, id);
+    product.count--;
+    if (product.count !== 0) {
+        setProductCartButtonText(id, product.count);
+    } else {
+        removeFromCart(cart, id);
+        setProductBuyButtonsState(id, false);
+    }
+    setCart(cart);
+}
+
+function addCount(cart, id) {
+    let product = findInCart(cart, id);
+    product.count++;
+    setCart(cart);
+    setProductCartButtonText(id, product.count);
 }
 
 function setProductsButtonsOnClick() {
@@ -188,30 +209,18 @@ function setProductsButtonsOnClick() {
             cart.push({id: id, category: category, count: 1});
             setCart(cart);
             setProductBuyButtonsState(id, true);
+            setProductCartButtonText(id, 1);
         };
     }
     for (let button of document.querySelectorAll(".cart_add_button")) {
         button.onclick = function () {
-            let id = button.id.split("+")[0];
-            let product = findInCart(cart, id);
-            product.count++;
-            setCart(cart);
-            setProductCartButtonText(id, product.count);
+            addCount(cart, button.id.split("+")[0]);
         }
     }
 
     for (let button of document.querySelectorAll(".cart_sub_button")) {
         button.onclick = function () {
-            let id = button.id.split("+")[0];
-            let product = findInCart(cart, id);
-            product.count--;
-            if (product.count !== 0) {
-                setProductCartButtonText(id, product.count);
-            } else {
-                removeFromCart(cart, id);
-                setProductBuyButtonsState(id, false);
-            }
-            setCart(cart);
+            subCount(cart, button.id.split("+")[0]);
         }
     }
 }
@@ -219,26 +228,13 @@ function setProductsButtonsOnClick() {
 function setCartElementButtonsOnClick() {
     for (let button of document.querySelectorAll(".cart_el_add_button")) {
         button.onclick = function () {
-            let id = button.id.split("+")[0];
-            let product = findInCart(cart, id);
-            product.count++;
-            setCart(cart);
-            setProductCartButtonText(id, product.count);
+            addCount(cart, button.id.split("+")[0]);
         }
     }
 
     for (let button of document.querySelectorAll(".cart_el_sub_button")) {
         button.onclick = function () {
-            let id = button.id.split("+")[0];
-            let product = findInCart(cart, id);
-            product.count--;
-            if (product.count !== 0) {
-                setProductCartButtonText(id, product.count);
-            } else {
-                removeFromCart(cart, id);
-                setProductBuyButtonsState(id, false);
-            }
-            setCart(cart);
+            subCount(cart, button.id.split("+")[0]);
         }
     }
     for (let button of document.querySelectorAll(".cart_el_del_button")) {
@@ -266,7 +262,7 @@ function createCartElement(cartElement, product) {
             <p class="product_cost">${(product["cost"] * cartElement["count"]).toLocaleString() + " ₽"}</p>
             <p class="cart_element_count">${cartElement.count} шт</p> 
             <div class="cart_element_div_button">
-                <button class="product_buy_button arrow_button cart_el_del_button" id="${product.id}+cart_el_del_button">Удалить<span></span></button>
+                <button class="cart_buy_button arrow_button cart_el_del_button" id="${product.id}+cart_el_del_button">Удалить<span></span></button>
                 <button class="cart_basket_button arrow_button cart_el_sub_button" id="${product.id}+cart_el_sub_button">-</button>
                 <button class="cart_basket_button arrow_button cart_el_add_button" id="${product.id}+cart_el_add_button">+</button>
             </div>
