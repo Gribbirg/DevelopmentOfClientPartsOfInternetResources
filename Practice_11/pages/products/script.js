@@ -190,9 +190,6 @@ function setProductsButtonsOnClick() {
             setProductBuyButtonsState(id, true);
         };
     }
-    for (let button of document.querySelectorAll(".cart_button")) {
-
-    }
     for (let button of document.querySelectorAll(".cart_add_button")) {
         button.onclick = function () {
             let id = button.id.split("+")[0];
@@ -219,6 +216,41 @@ function setProductsButtonsOnClick() {
     }
 }
 
+function setCartElementButtonsOnClick() {
+    for (let button of document.querySelectorAll(".cart_el_add_button")) {
+        button.onclick = function () {
+            let id = button.id.split("+")[0];
+            let product = findInCart(cart, id);
+            product.count++;
+            setCart(cart);
+            setProductCartButtonText(id, product.count);
+        }
+    }
+
+    for (let button of document.querySelectorAll(".cart_el_sub_button")) {
+        button.onclick = function () {
+            let id = button.id.split("+")[0];
+            let product = findInCart(cart, id);
+            product.count--;
+            if (product.count !== 0) {
+                setProductCartButtonText(id, product.count);
+            } else {
+                removeFromCart(cart, id);
+                setProductBuyButtonsState(id, false);
+            }
+            setCart(cart);
+        }
+    }
+    for (let button of document.querySelectorAll(".cart_el_del_button")) {
+        button.onclick = function () {
+            let id = button.id.split("+")[0];
+            removeFromCart(cart, id);
+            setProductBuyButtonsState(id, false);
+            setCart(cart);
+        }
+    }
+}
+
 function removeFromCart(cart, id) {
     let pos = cart.findIndex(function (item) {
         return item.id === id;
@@ -233,10 +265,10 @@ function createCartElement(cartElement, product) {
             <p class="product_desc">${product.description}</p>
             <p class="product_cost">${(product["cost"] * cartElement["count"]).toLocaleString() + " ₽"}</p>
             <p class="cart_element_count">${cartElement.count} шт</p> 
-            <div class="product_div_button">
+            <div class="cart_element_div_button">
+                <button class="product_buy_button arrow_button cart_el_del_button" id="${product.id}+cart_el_del_button">Удалить<span></span></button>
                 <button class="cart_basket_button arrow_button cart_el_sub_button" id="${product.id}+cart_el_sub_button">-</button>
                 <button class="cart_basket_button arrow_button cart_el_add_button" id="${product.id}+cart_el_add_button">+</button>
-                <button class="product_buy_button arrow_button cart_el_add_button" id="${product.id}+cart_el_del_button">Удалить</button>
             </div>
         </div>`
     ;
@@ -247,6 +279,7 @@ function setCart(cart) {
     for (let element of cart) {
         createCartElement(element, getProduct(element.category, element.id));
     }
+    setCartElementButtonsOnClick();
 }
 
 document.getElementById("clear_button").onclick = function () {

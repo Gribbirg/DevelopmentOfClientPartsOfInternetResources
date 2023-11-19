@@ -1,6 +1,6 @@
 main {
     display: grid;
-    grid: repeat(3, fit-content(100%)) / 300px 1fr 500px;
+    grid: repeat(3, fit-content(100%)) / 300px 1fr 600px;
     grid-template-areas: "catalog catalog cart"
                         "sort products products"
                         "filter products products";
@@ -189,7 +189,7 @@ section {
 
 #cart_section {
     display: grid;
-    grid: fit-content(100%) 180px / 0 1fr fit-content(100%);
+    grid: fit-content(100%) 300px / 0 1fr fit-content(100%);
     flex-flow: row wrap;
     align-items: center;
 
@@ -246,9 +246,17 @@ section {
 
     > .cart_element_div_button {
         grid-area: button;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-self: right;
 
         > .cart_el_sub_button, > .cart_el_add_button {
             display: block;
+        }
+
+        > .cart_el_del_button {
+            margin-right: 10px;
+            margin-left: 10px;
         }
     }
 }
