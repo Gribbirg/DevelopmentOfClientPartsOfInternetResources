@@ -138,7 +138,7 @@ section {
 
 #catalog {
     grid-area: catalog;
-    height: initial;
+    height: 100%;
 }
 
 #sort_section {
@@ -283,3 +283,4 @@ section {
     width: 150px;
     height: 30px;
 }
+
