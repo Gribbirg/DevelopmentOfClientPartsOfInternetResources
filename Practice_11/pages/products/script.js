@@ -121,7 +121,16 @@ function onSortDivClickListener(div) {
     setContent(content);
 }
 
+function getProduct(category, id) {
+    return data.find(function (item) {
+        return item.id === category;
+    })["products"].find(function (item) {
+        return item.id === id;
+    });
+}
+
 import data from '../../products/products.json' assert {type: 'json'};
+
 let cart = [];
 let category = getCategory();
 addCategory(category);
@@ -177,6 +186,7 @@ function setProductsButtonsOnClick() {
         button.onclick = function () {
             let id = button.id.split("+")[0];
             cart.push({id: id, category: category, count: 1});
+            setCart(cart);
             setProductBuyButtonsState(id, true);
         };
     }
@@ -188,6 +198,7 @@ function setProductsButtonsOnClick() {
             let id = button.id.split("+")[0];
             let product = findInCart(cart, id);
             product.count++;
+            setCart(cart);
             setProductCartButtonText(id, product.count);
         }
     }
@@ -203,6 +214,7 @@ function setProductsButtonsOnClick() {
                 removeFromCart(cart, id);
                 setProductBuyButtonsState(id, false);
             }
+            setCart(cart);
         }
     }
 }
@@ -211,11 +223,35 @@ function removeFromCart(cart, id) {
     let pos = cart.findIndex(function (item) {
         return item.id === id;
     });
-    cart.splice(pos);
+    cart.splice(pos, 1);
+}
+
+function createCartElement(cartElement, product) {
+    document.getElementById("cart_div").innerHTML +=
+        `<div class="cart_element">
+            <h3 class="product_head">${product.name}</h3>
+            <p class="product_desc">${product.description}</p>
+            <p class="product_cost">${(product["cost"] * cartElement["count"]).toLocaleString() + " ₽"}</p>
+            <p class="cart_element_count">${cartElement.count} шт</p> 
+            <div class="product_div_button">
+                <button class="cart_basket_button arrow_button cart_el_sub_button" id="${product.id}+cart_el_sub_button">-</button>
+                <button class="cart_basket_button arrow_button cart_el_add_button" id="${product.id}+cart_el_add_button">+</button>
+                <button class="product_buy_button arrow_button cart_el_add_button" id="${product.id}+cart_el_del_button">Удалить</button>
+            </div>
+        </div>`
+    ;
+}
+
+function setCart(cart) {
+    document.getElementById("cart_div").innerHTML = "";
+    for (let element of cart) {
+        createCartElement(element, getProduct(element.category, element.id));
+    }
 }
 
 document.getElementById("clear_button").onclick = function () {
     cart = [];
+    setCart(cart);
     setContent(content);
 }
 

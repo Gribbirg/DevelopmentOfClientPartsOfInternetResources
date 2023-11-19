@@ -189,7 +189,7 @@ section {
 
 #cart_section {
     display: grid;
-    grid: fit-content(100%) 1fr / 0 1fr fit-content(100%);
+    grid: fit-content(100%) 180px / 0 1fr fit-content(100%);
     flex-flow: row wrap;
     align-items: center;
 
@@ -204,4 +204,60 @@ section {
         width: 150px;
         justify-self: left;
     }
+}
+
+#cart_div {
+    display: block;
+    height: 150px;
+    overflow: auto;
+}
+
+.cart_element {
+    width: calc(100% - 40px);
+    height: fit-content;
+    background: #fcfdf6;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 2px grey;
+    display: grid;
+    grid: repeat(3, fit-content(100%)) / 1fr fit-content(100%);
+    grid-template-areas: "head cost"
+                        "desc count"
+                        "button button";
+
+    margin: 10px;
+    padding: 10px;
+
+    > h3 {
+        grid-area: head;
+    }
+
+    > .product_desc {
+        grid-area: desc;
+    }
+
+    > .product_cost {
+        grid-area: cost;
+    }
+
+    > .cart_element_count {
+        grid-area: count;
+        justify-self: right;
+    }
+
+    > .cart_element_div_button {
+        grid-area: button;
+
+        > .cart_el_sub_button, > .cart_el_add_button {
+            display: block;
+        }
+    }
+}
+
+.cart_basket_button {
+    /*border-radius: 8px;*/
+    display: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
 }
