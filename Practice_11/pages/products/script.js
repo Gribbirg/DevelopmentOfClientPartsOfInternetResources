@@ -40,7 +40,7 @@ function setContent(content) {
     if (content.length !== 0) {
         for (let product of content) {
             createProductDiv(product);
-            let cartEl = findInCart(cart, product.id);
+            let cartEl = cart.find(product.id);
             if (cartEl !== undefined) {
                 setProductBuyButtonsState(product.id, true);
                 setProductCartButtonText(product.id, cartEl.count);
@@ -129,40 +129,6 @@ function getProduct(category, id) {
     });
 }
 
-import data from '../../products/products.json' assert {type: 'json'};
-
-let cart = [];
-let category = getCategory();
-addCategory(category);
-
-let content = findCategory(category)["products"];
-onSortDivClickListener(document.getElementById("cost_sort"));
-setContent(content);
-
-document.getElementById("confirm_filter_button").onclick = function () {
-    content = findCategory(category)["products"];
-
-    let costFrom = Number(document.getElementById("from_cost_filter").value);
-    let costTo = Number(document.getElementById("to_cost_filter").value);
-    if (costFrom && costTo) {
-        content = getFilterList(content, costFrom, costTo);
-    }
-
-    setContent(content);
-}
-
-for (let div of document.querySelectorAll(".sort_divs")) {
-    div.onclick = function () {
-        onSortDivClickListener(div);
-    };
-}
-
-function findInCart(cart, id) {
-    return cart.find(function (item) {
-        return item.id === id;
-    });
-}
-
 function setProductBuyButtonsState(id, state) {
     if (document.getElementById(`${id}+buy_button`)) {
         if (state) {
@@ -184,7 +150,7 @@ function setProductCartButtonText(id, count) {
 }
 
 function subCount(cart, id) {
-    let product = findInCart(cart, id);
+    let product = cart.find(id);
     product.count--;
     if (product.count !== 0) {
         setProductCartButtonText(id, product.count);
@@ -196,7 +162,7 @@ function subCount(cart, id) {
 }
 
 function addCount(cart, id) {
-    let product = findInCart(cart, id);
+    let product = cart.find(cart, id);
     product.count++;
     setCart(cart);
     setProductCartButtonText(id, product.count);
@@ -206,7 +172,7 @@ function setProductsButtonsOnClick() {
     for (let button of document.querySelectorAll(".product_buy_button")) {
         button.onclick = function () {
             let id = button.id.split("+")[0];
-            cart.push({id: id, category: category, count: 1});
+            cart.products.push({id: id, category: category, count: 1});
             setCart(cart);
             setProductBuyButtonsState(id, true);
             setProductCartButtonText(id, 1);
@@ -248,10 +214,10 @@ function setCartElementButtonsOnClick() {
 }
 
 function removeFromCart(cart, id) {
-    let pos = cart.findIndex(function (item) {
+    let pos = cart.products.findIndex(function (item) {
         return item.id === id;
     });
-    cart.splice(pos, 1);
+    cart.products.splice(pos, 1);
 }
 
 function createCartElement(cartElement, product) {
@@ -272,7 +238,7 @@ function createCartElement(cartElement, product) {
 
 function setSumText(cart) {
     let sum = 0;
-    cart.forEach(function (item) {
+    cart.products.forEach(function (item) {
         sum += (getProduct(item["category"], item.id)["cost"] * item.count);
     });
     document.getElementById("sum_p").innerHTML = `Всего: ${sum.toLocaleString()} ₽`
@@ -287,9 +253,88 @@ function setCart(cart) {
     setSumText(cart);
 }
 
+function CartProduct(id, category, count = 1) {
+    this.id = id;
+    this.category = category;
+    this.count = count;
+    this.add = function () {
+        this.count++;
+        return this.count;
+    }
+    this.mul = function () {
+        this.count--;
+        return this.count;
+    }
+    this.getFullCost = function () {
+        return getProduct(this.category, this.id)["cost"] * this.count;
+    }
+    this.toString = function () {
+        return `${id}+${category}+${count}`;
+    }
+}
+
+function CartProductFromStr(str) {
+    let values = str.split("+");
+    return new CartProduct(values[0], values[1], Number(values[2]));
+}
+
+function Cart(str = null) {
+    this.products = [];
+    this.sum = 0;
+    this.toString = function () {
+        return this.products.join("*");
+    }
+    this.find = function (id) {
+        return cart.products.find(function (item) {
+            return item.id === id;
+        });
+    }
+
+    if (str !== null && str !== "") {
+        for (let s of str.split("*")) {
+            let element = new CartProductFromStr(s)
+            this.products.push(element);
+            this.sum += element.getFullCost();
+        }
+    }
+}
+
+import data from '../../products/products.json' assert {type: 'json'};
+
+let cart = new Cart(localStorage.getItem("cart"));
+alert(cart.toString())
+let category = getCategory();
+addCategory(category);
+
+let content = findCategory(category)["products"];
+onSortDivClickListener(document.getElementById("cost_sort"));
+setContent(content);
+
+document.getElementById("confirm_filter_button").onclick = function () {
+    content = findCategory(category)["products"];
+
+    let costFrom = Number(document.getElementById("from_cost_filter").value);
+    let costTo = Number(document.getElementById("to_cost_filter").value);
+    if (costFrom && costTo) {
+        content = getFilterList(content, costFrom, costTo);
+    }
+
+    setContent(content);
+}
+
+for (let div of document.querySelectorAll(".sort_divs")) {
+    div.onclick = function () {
+        onSortDivClickListener(div);
+    };
+}
+
 document.getElementById("clear_button").onclick = function () {
-    cart = [];
+    cart = new Cart();
     setCart(cart);
     setContent(content);
+}
+
+window.onbeforeunload = function () {
+    localStorage.setItem("cart", cart);
 }
 
