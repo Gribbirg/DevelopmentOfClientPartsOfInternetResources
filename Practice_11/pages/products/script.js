@@ -275,7 +275,7 @@ function setSumText(cart) {
     cart.forEach(function (item) {
         sum += (getProduct(item["category"], item.id)["cost"] * item.count);
     });
-    document.getElementById("sum_p").innerHTML = `Всего: ${sum} ₽`
+    document.getElementById("sum_p").innerHTML = `Всего: ${sum.toLocaleString()} ₽`
 }
 
 function setCart(cart) {
