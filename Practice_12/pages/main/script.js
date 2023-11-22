@@ -214,3 +214,37 @@ function truncate(str, maxlength) {
 for (let p of document.querySelectorAll("#blur_card_div > div > p, #anim_line_div > div > div > p")) {
     p.innerHTML = truncate(p.innerHTML, 170);
 }
+
+
+function createNotification() {
+    document.getElementById("notification_list").innerHTML += `<li><a>Пора купить новый Москвич!</a></li>`
+}
+
+let notificationSpawnId;
+
+function startNotificationSpawn() {
+    notificationSpawnId = setInterval(createNotification, 3000);
+}
+
+startNotificationSpawn();
+
+
+function delay(fun, time) {
+    return function () {
+        setTimeout(() => fun.apply(this, arguments), time);
+    };
+}
+
+let notificationSpawnDelay = delay(startNotificationSpawn, 10000);
+
+function delayNotificationSpawn() {
+    if (notificationSpawnId !== null) {
+        clearInterval(notificationSpawnId);
+        notificationSpawnDelay();
+        notificationSpawnId = null;
+    }
+}
+
+document.getElementById("notification_menu_sym").onclick = function () {
+    delayNotificationSpawn();
+}

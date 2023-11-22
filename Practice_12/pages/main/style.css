@@ -1566,6 +1566,8 @@ footer {
         list-style: none;
         padding: 0;
         counter-reset: notifications_count;
+        height: 300px;
+        overflow: auto;
 
         > li {
             counter-increment: notifications_count;
@@ -1615,7 +1617,6 @@ footer {
             color: white;
             /*border: #002200 1px solid;*/
             box-shadow: 3px 3px 5px black;
-            transform: scale(1.1);
 
             ::before {
                 background: #77ff61;
