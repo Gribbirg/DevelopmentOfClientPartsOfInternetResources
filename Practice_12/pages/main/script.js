@@ -262,4 +262,14 @@ document.getElementById("wish_add_button").onclick = function () {
         createWish(text);
         text = prompt("Введите свой желаемый товар:");
     }
+    showNotification(`<p>Добавлено!</p><img height="50px" src="../../images/logo/logo_big.png" alt="Логотип">`)
 }
+
+function  showNotification(options) {
+    let notification = document.createElement("div");
+    notification.className = "notification";
+    notification.innerHTML = options;
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 1500);
+}
+
