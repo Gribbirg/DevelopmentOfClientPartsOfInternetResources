@@ -28,7 +28,7 @@ main {
     /*height: fit-content;*/
 }
 
-#descriptions {
+#wish_section {
     grid-column: span 1;
 }
 

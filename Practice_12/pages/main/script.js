@@ -245,6 +245,21 @@ function delayNotificationSpawn() {
     }
 }
 
+function createWish(text) {
+    let li = document.createElement("li");
+    li.textContent = text;
+    document.querySelector("#wish_section > ul").appendChild(li);
+}
+
 document.getElementById("notification_menu_sym").onclick = function () {
     delayNotificationSpawn();
+}
+
+document.getElementById("wish_add_button").onclick = function () {
+    document.querySelector("#wish_section > ul").innerHTML = "";
+    let text = prompt("Введите свой желаемый товар:");
+    while (text) {
+        createWish(text);
+        text = prompt("Введите свой желаемый товар:");
+    }
 }
