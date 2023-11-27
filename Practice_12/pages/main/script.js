@@ -223,6 +223,7 @@ function createNotification() {
 let notificationSpawnId;
 
 function startNotificationSpawn() {
+    createNotification();
     notificationSpawnId = setInterval(createNotification, 3000);
 }
 
@@ -231,7 +232,7 @@ startNotificationSpawn();
 
 function delay(fun, time) {
     return function () {
-        setTimeout(() => fun.apply(this, arguments), time);
+        setTimeout(() => fun(), time);
     };
 }
 

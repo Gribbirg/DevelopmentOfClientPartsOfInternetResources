@@ -1638,6 +1638,7 @@ footer {
 #notification_menu_sym::before {
     content: "\1F514";
     color: white;
+    cursor: pointer;
 }
 
 #notification_menu_sym::after {
