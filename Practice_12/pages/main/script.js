@@ -252,9 +252,8 @@ function createWish(text) {
     document.querySelector("#wish_section > ul").appendChild(li);
 }
 
-document.getElementById("notification_menu_sym").onclick = function () {
-    delayNotificationSpawn();
-}
+document.getElementById("notification_menu_sym").onclick = delayNotificationSpawn;
+
 
 document.getElementById("wish_add_button").onclick = function () {
     document.querySelector("#wish_section > ul").innerHTML = "";
