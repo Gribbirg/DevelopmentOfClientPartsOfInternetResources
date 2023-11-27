@@ -266,7 +266,7 @@ document.getElementById("wish_add_button").onclick = function () {
     showNotification(`<p>Добавлено!</p><img height="50px" src="../../images/logo/logo_big.png" alt="Логотип">`)
 }
 
-function  showNotification(options) {
+function showNotification(options) {
     let notification = document.createElement("div");
     notification.className = "notification";
     notification.innerHTML = options;
