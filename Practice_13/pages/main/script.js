@@ -262,14 +262,37 @@ document.getElementById("wish_add_button").onclick = function () {
         createWish(text);
         text = prompt("Введите свой желаемый товар:");
     }
-    showNotification(`<p>Добавлено!</p><img height="50px" src="../../images/logo/logo_big.png" alt="Логотип">`)
+    showNotification()
 }
+// `<p>Добавлено!</p><img height="50px" src="../../images/logo/logo_big.png" alt="Логотип">`
 
-function showNotification(options) {
+function showNotification() {
     let notification = document.createElement("div");
+
     notification.className = "notification";
-    notification.innerHTML = options;
+    notification.style.width = "1000px";
+    notification.style.height = "600px";
+
+
+    let image = document.createElement("img");
+
+    image.height = 400;
+    image.width = 630;
+    image.src = "../../images/logo/logo_big.png";
+    image.alt = "Логотип";
+    image.style.position = "absolute";
+
+    let buttonClose = document.createElement("button");
+
+
+    notification.appendChild(image);
     document.body.appendChild(notification);
-    setTimeout(() => notification.remove(), 1500);
+
+    notification.style.top = (document.documentElement.clientHeight / 2 - notification.offsetHeight / 2) + "px";
+    notification.style.left = (document.documentElement.clientWidth / 2 - notification.offsetWidth / 2) + "px";
+    image.style.top = (notification.clientHeight / 2 - image.offsetHeight / 2) + "px";
+    image.style.left = (notification.clientWidth / 2 - image.offsetWidth / 2) + "px";
+
+    // setTimeout(() => notification.remove(), 1500);
 }
 
