@@ -264,6 +264,7 @@ document.getElementById("wish_add_button").onclick = function () {
     }
     showNotification()
 }
+
 // `<p>Добавлено!</p><img height="50px" src="../../images/logo/logo_big.png" alt="Логотип">`
 
 function setMousePositionText(event) {
@@ -323,3 +324,7 @@ document.getElementById("notification_list").onclick = function (event) {
 
     target.parentElement.remove();
 }
+
+window.addEventListener("scroll", function () {
+    document.body.style.backgroundPosition = "center " + (window.scrollY * 0.3) + "px";
+});
