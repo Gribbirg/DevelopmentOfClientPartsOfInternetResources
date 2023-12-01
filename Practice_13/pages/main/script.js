@@ -217,7 +217,7 @@ for (let p of document.querySelectorAll("#blur_card_div > div > p, #anim_line_di
 
 
 function createNotification() {
-    document.getElementById("notification_list").innerHTML += `<li><a>Пора купить новый Москвич!</a></li>`
+    document.getElementById("notification_list").innerHTML += `<li><a>Пора купить новый Москвич!</a><button>✖</button></li>`
 }
 
 let notificationSpawnId;
@@ -316,3 +316,10 @@ function showNotification() {
     mousePositionText.style.left = (notification.clientWidth / 2 - mousePositionText.offsetWidth / 2) + "px";
 }
 
+document.getElementById("notification_list").onclick = function (event) {
+    let target = event.target;
+
+    if (target.tagName !== "BUTTON") return;
+
+    target.parentElement.remove();
+}
