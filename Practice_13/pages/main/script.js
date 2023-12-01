@@ -266,6 +266,12 @@ document.getElementById("wish_add_button").onclick = function () {
 }
 // `<p>Добавлено!</p><img height="50px" src="../../images/logo/logo_big.png" alt="Логотип">`
 
+function setMousePositionText(event) {
+    let mousePositionText = document.getElementById("mouse_position_text")
+    mousePositionText.textContent = `Клик мышки по координатам: ${event.clientX}:${event.clientY}`;
+    mousePositionText.style.left = (mousePositionText.parentElement.clientWidth / 2 - mousePositionText.offsetWidth / 2) + "px";
+}
+
 function showNotification() {
     let notification = document.createElement("div");
 
@@ -283,15 +289,31 @@ function showNotification() {
     image.style.position = "absolute";
 
     let buttonClose = document.createElement("button");
+    buttonClose.textContent = "✖";
+    buttonClose.onclick = function () {
+        notification.remove();
+        window.removeEventListener("click", setMousePositionText);
+    }
+
+    let mousePositionText = document.createElement("p");
+    mousePositionText.id = "mouse_position_text";
+    mousePositionText.style.position = "absolute";
+    window.addEventListener("click", setMousePositionText);
 
 
     notification.appendChild(image);
+    notification.appendChild(buttonClose);
+    notification.appendChild(mousePositionText);
     document.body.appendChild(notification);
 
     notification.style.top = (document.documentElement.clientHeight / 2 - notification.offsetHeight / 2) + "px";
     notification.style.left = (document.documentElement.clientWidth / 2 - notification.offsetWidth / 2) + "px";
     image.style.top = (notification.clientHeight / 2 - image.offsetHeight / 2) + "px";
     image.style.left = (notification.clientWidth / 2 - image.offsetWidth / 2) + "px";
+    buttonClose.style.right = "15px";
+    buttonClose.style.top = "10px";
+    mousePositionText.style.bottom = "15px";
+    mousePositionText.style.left = (notification.clientWidth / 2 - mousePositionText.offsetWidth / 2) + "px";
 
     // setTimeout(() => notification.remove(), 1500);
 }
