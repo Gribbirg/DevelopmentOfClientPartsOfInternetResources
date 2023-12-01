@@ -35,15 +35,19 @@ function createProductDiv(product) {
         </div>`;
 }
 
+function getCurrentProductsDisplayCount() {
+    return document.querySelectorAll(".product_div").length;
+}
+
 function setContent(content) {
     document.getElementById("products_div").innerHTML = "";
     if (content.length !== 0) {
-        for (let product of content) {
-            createProductDiv(product);
-            let cartEl = findInCart(cart, product.id);
+        for (let i = 0; i < Math.min(4, content.length); i++) {
+            createProductDiv(content[i]);
+            let cartEl = findInCart(cart, content[i].id);
             if (cartEl !== undefined) {
-                setProductBuyButtonsState(product.id, true);
-                setProductCartButtonText(product.id, cartEl.count);
+                setProductBuyButtonsState(content[i].id, true);
+                setProductCartButtonText(content[i].id, cartEl.count);
             }
         }
         setProductsButtonsOnClick();
@@ -52,6 +56,18 @@ function setContent(content) {
             `
             <p>По заданным критериям ничего не найдено.</p>
             `;
+    }
+}
+
+function addProducts(content) {
+    let count = getCurrentProductsDisplayCount();
+    for (let i = count; i < Math.min(count + 2, content.length); i++) {
+        createProductDiv(content[i]);
+        let cartEl = findInCart(cart, content[i].id);
+        if (cartEl !== undefined) {
+            setProductBuyButtonsState(content[i].id, true);
+            setProductCartButtonText(content[i].id, cartEl.count);
+        }
     }
 }
 
@@ -292,3 +308,9 @@ document.getElementById("clear_button").onclick = function () {
     setCart(cart);
     setContent(content);
 }
+
+window.addEventListener("scroll", function (event) {
+    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 10) {
+        addProducts(content);
+    }
+});
