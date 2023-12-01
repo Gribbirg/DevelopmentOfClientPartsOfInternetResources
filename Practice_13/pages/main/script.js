@@ -314,7 +314,5 @@ function showNotification() {
     buttonClose.style.top = "10px";
     mousePositionText.style.bottom = "15px";
     mousePositionText.style.left = (notification.clientWidth / 2 - mousePositionText.offsetWidth / 2) + "px";
-
-    // setTimeout(() => notification.remove(), 1500);
 }
 
