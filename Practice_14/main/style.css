@@ -948,3 +948,21 @@ article {
         }
     }
 }
+
+#slider_div {
+    width: 300px;
+    height: 20px;
+    background: var(--md-sys-color-surface-variant);
+    border-radius: 20px;
+    margin: 20px;
+
+    > div {
+        width: 16px;
+        height: 40px;
+        background: var(--md-sys-color-primary);
+        position: relative;
+        border-radius: 8px;
+        top: -10px;
+        cursor: pointer;
+    }
+}
