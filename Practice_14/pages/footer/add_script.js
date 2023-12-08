@@ -30,6 +30,6 @@ document.body.innerHTML += `
         <p>Студент: Грибков Александр Сергеевич</p>
         <p>Группа: ИКБО-16-22</p>
     </div>
-    <img src="/AutoPartsStoreWebsiteFrontend/images/animation/car.png" alt="Машинка" id="footer_anim_car">
+    <img src="/DevelopmentOfClientPartsOfInternetResources/Practice_14/images/animation/car.png" alt="Машинка" id="footer_anim_car">
     </footer>
 `

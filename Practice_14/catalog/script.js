@@ -16,7 +16,7 @@ function createCategory(category) {
     section.appendChild(img);
 
     let ref = document.createElement("a");
-    ref.href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${category.id}`;
+    ref.href = `/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/products/?type=${category.id}`;
     section.appendChild(ref);
 
     let list = document.createElement("ul");
@@ -27,7 +27,7 @@ function createCategory(category) {
         list.appendChild(line);
 
         let href = document.createElement("a");
-        href.href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${category.id}&category=${sub.id}`
+        href.href = `/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/products/?type=${category.id}&category=${sub.id}`
         href.textContent = sub.name;
         line.appendChild(href);
     }

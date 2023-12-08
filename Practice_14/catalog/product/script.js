@@ -8,13 +8,13 @@ const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
 });
 if (!typeData)
-    window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+    window.location.href = "/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/";
 
 const categoryData = typeData["subcategories"].find(function (item) {
     return item.id === category;
 });
 if (!categoryData)
-    window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+    window.location.href = "/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/";
 
 // const response = await fetch(`https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products/${type}/${category}.json`);
 const response = await fetch(`../../data/products/${type}/${category}.json`);
@@ -22,7 +22,7 @@ const product = (await response.json()).find(function (item) {
     return item.id === id;
 });
 if (!product)
-    window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+    window.location.href = "/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/";
 
 setProductData(product);
 
@@ -40,7 +40,7 @@ function getCategory() {
     let category = search.get("category");
     let id = search.get("product")
     if (!type || type === "null" || !category || category === "null" || !id || id === "null") {
-        window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+        window.location.href = "/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/";
     }
     return {type, category, id};
 }
@@ -48,7 +48,7 @@ function getCategory() {
 function setProductData(product) {
     document.title = product.name;
     document.querySelector("#main_section > h2").textContent = product.name;
-    document.getElementById("logo").src = `/AutoPartsStoreWebsiteFrontend/images/products/${product["img"]}`;
+    document.getElementById("logo").src = `/DevelopmentOfClientPartsOfInternetResources/Practice_14/images/products/${product["img"]}`;
     document.getElementById("logo").alt = product["name"];
     document.getElementById("desc").textContent = product.description;
     document.getElementById("cost").textContent = `${product["cost"].toLocaleString()} ₽`;
@@ -59,13 +59,13 @@ function setProductData(product) {
                         <span></span>
                     </button>
                     <button class="product_basket_button arrow_button cart_sub_button" id="${product.id}+cart_sub_button">-</button>
-                    <a href="/AutoPartsStoreWebsiteFrontend/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
+                    <a href="/DevelopmentOfClientPartsOfInternetResources/Practice_14/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
                         В корзине 1 шт
                         <span></span>
                     </button></a>
                     <button class="product_basket_button arrow_button cart_add_button" id="${product.id}+cart_add_button">+</button>
                 </div>`;
-    document.getElementById("similar_ref").href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${type}&category=${category}`;
+    document.getElementById("similar_ref").href = `/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/products/?type=${type}&category=${category}`;
     let desc = product["description_full"];
     document.getElementById("full_description").textContent = (desc) ? desc : "Информация не найдена.";
 
@@ -80,10 +80,10 @@ function setProductData(product) {
     }
     if (table.innerHTML === "") table.outerHTML = `<p>Информация не найдена.</p>`;
 
-    document.getElementById("gallery_list").innerHTML += `<img src="/AutoPartsStoreWebsiteFrontend/images/products/${product["img"]}" class="selected_img_gallery" alt="${product.name}">`;
+    document.getElementById("gallery_list").innerHTML += `<img src="/DevelopmentOfClientPartsOfInternetResources/Practice_14/images/products/${product["img"]}" class="selected_img_gallery" alt="${product.name}">`;
 
     for (let img of product["gallery"] ?? []) {
-        document.getElementById("gallery_list").innerHTML += `<img src="/AutoPartsStoreWebsiteFrontend/images/products/${img}" alt="${product.name}">`;
+        document.getElementById("gallery_list").innerHTML += `<img src="/DevelopmentOfClientPartsOfInternetResources/Practice_14/images/products/${img}" alt="${product.name}">`;
     }
 
     setProductsButtonsOnClick(type, category);

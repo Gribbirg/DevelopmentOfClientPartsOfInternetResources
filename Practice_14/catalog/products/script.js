@@ -8,7 +8,7 @@ const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
 });
 if (!typeData)
-    window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+    window.location.href = "/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/";
 
 if (!category || category === "null")
     goToCategory(type, typeData["subcategories"][0].id);
@@ -41,7 +41,7 @@ function getCategory() {
     let search = new URLSearchParams(window.location.search)
     let type = search.get("type");
     if (!type || type === "null") {
-        window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+        window.location.href = "/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/";
     }
     let category = search.get("category");
     return {type, category};
@@ -106,11 +106,11 @@ function createFilters(categoryData) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div" id="${product.id}+product_div">
-            <h3 class="product_head"><a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">${product.name}</a></h3>
+            <h3 class="product_head"><a href="/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/product/?type=${type}&category=${category}&product=${product.id}">${product.name}</a></h3>
             
             <div class="product_img_div">
-                <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
-                    <img src=${"/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
+                <a href="/DevelopmentOfClientPartsOfInternetResources/Practice_14/catalog/product/?type=${type}&category=${category}&product=${product.id}">
+                    <img src=${"/DevelopmentOfClientPartsOfInternetResources/Practice_14/images/products/" + product["img"]} alt=${product.name}/>
                 </a>
             </div>
             <p class="product_desc">${product.description}</p>
@@ -121,7 +121,7 @@ function createProductDiv(product) {
                     <span></span>
                 </button>
                 <button class="product_basket_button arrow_button cart_sub_button" id="${product.id}+cart_sub_button">-</button>
-                <a href="/AutoPartsStoreWebsiteFrontend/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
+                <a href="/DevelopmentOfClientPartsOfInternetResources/Practice_14/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
                     В корзине 1 шт
                     <span></span>
                 </button></a>
