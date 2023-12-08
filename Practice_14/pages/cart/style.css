@@ -1,0 +1,36 @@
+.product_div_button {
+    display: flex;
+    flex-flow: row wrap;
+    grid-area: button;
+    justify-self: end;
+    align-self: end;
+    justify-content: center;
+    margin: 10px;
+
+    > a {
+        text-decoration: none;
+    }
+}
+
+.product_buy_button {
+    width: 150px;
+    height: 30px;
+
+    /*padding: 2px 50px;*/
+}
+
+.product_basket_button {
+    /*border-radius: 8px;*/
+    display: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.cart_button {
+    width: 150px;
+    color: var(--md-sys-color-on-secondary-container);
+    background: var(--md-sys-color-secondary-container);
+    border-color: var(--md-sys-color-secondary);
+}

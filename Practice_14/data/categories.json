@@ -1,0 +1,149 @@
+[
+  {
+    "id": "chemistry",
+    "name": "Масло и автохимия",
+    "logo": "Lukoil_3148675.png",
+    "subcategories": [
+      {
+        "id": "oil",
+        "name": "Моторное масло",
+        "filters": [
+          {
+            "id": "compound",
+            "name": "Состав",
+            "type": "choice",
+            "options": [
+              "синтетическое",
+              "полусинтетическое",
+              "минеральное"
+            ]
+          },
+          {
+            "id": "viscosity",
+            "name": "Вязкость",
+            "type": "choice",
+            "options": [
+              "5W-30",
+              "5W-40",
+              "10W-40",
+              "15W-40"
+            ]
+          },
+          {
+            "id": "volume",
+            "name": "Объём",
+            "type": "num",
+            "unit": "л."
+          }
+        ]
+      },
+      {
+        "id": "cooling",
+        "name": "Жидкости для охлаждения"
+      },
+      {
+        "id": "washer",
+        "name": "Жидкости для омывателя"
+      }
+    ]
+  },
+  {
+    "id": "tiers",
+    "name": "Шины и диски",
+    "logo": "Michelin_462289.png",
+    "subcategories": [
+      {
+        "id": "summer",
+        "name": "Летние шины",
+        "filters": [
+          {
+            "id": "diameter",
+            "name": "Диаметр",
+            "type": "num",
+            "unit": "дюймов"
+          },
+          {
+            "id": "size",
+            "name": "Размер",
+            "type": "choice",
+            "options": [
+              "175/75",
+              "185/55",
+              "185/60",
+              "195/50",
+              "205/55"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "winter",
+        "name": "Зимние шины",
+        "filters": [
+          {
+            "id": "diameter",
+            "name": "Диаметр",
+            "type": "num",
+            "unit": "дюймов"
+          },
+          {
+            "id": "size",
+            "name": "Размер",
+            "type": "choice",
+            "options": [
+              "185/65",
+              "205/65"
+            ]
+          },
+          {
+            "id": "thorns",
+            "name": "Наличие шипов",
+            "type": "choice",
+            "options": [
+              "Да",
+              "Нет"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "disk",
+        "name": "Диски"
+      }
+    ]
+  },
+  {
+    "id": "electronics",
+    "name": "Автоэлектроника",
+    "logo": "Osram_64193.png",
+    "subcategories": [
+      {
+        "id": "lamp",
+        "name": "Лампы"
+      },
+      {
+        "id": "battery",
+        "name": "Аккумуляторы"
+      },
+      {
+        "id": "breaker",
+        "name": "Предохранители"
+      }
+    ]
+  },
+  {
+    "id": "other",
+    "name": "Остальное",
+    "logo": "Airline_ACF-20A.png",
+    "subcategories": [
+      {
+        "id": "tool",
+        "name": "Инструменты"
+      },
+      {
+        "id": "accessory",
+        "name": "Автоаксессуары"
+      }
+    ]
+  }
+]

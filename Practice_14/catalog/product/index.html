@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Товар</title>
+
+    <link rel="icon" type="image/png" href="/AutoPartsStoreWebsiteFrontend/images/logo/logo_small.png">
+
+    <link rel="stylesheet" href="/AutoPartsStoreWebsiteFrontend/pages/global_style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="../../pages/cart/cart_script.js"></script>
+    <script src="../../pages/animate.js" defer></script>
+
+</head>
+<body>
+<script type="module" src="../../pages/header/add_script.js" async></script>
+<main>
+    <section id="main_section">
+        <h2 class="part_name"></h2>
+        <div id="data_div">
+            <div id="product_gallery">
+                <img id="logo">
+                <div id="gallery_list"></div>
+            </div>
+            <div id="main_data_div">
+                <p id="desc"></p>
+                <div id="buy_div">
+                    <p id="cost"></p>
+                </div>
+                <a id="similar_ref" class="arrow_button">Похожие товары<span></span></a>
+            </div>
+        </div>
+    </section>
+    <section id="description_section">
+        <h2 class="part_name">Описание</h2>
+        <p id="full_description"></p>
+    </section>
+    <section id="characteristics_section">
+        <h2 class="part_name">Характеристики</h2>
+        <table id="characteristics_table"></table>
+    </section>
+</main>
+<script src="../../pages/footer/add_script.js"></script>
+</body>
+<script type="module" src="script.js"></script>
+</html>

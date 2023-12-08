@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,800&family=Roboto:wght@300;400;700;900&display=swap');
+@import "colors/theme.css";
+@import "header/style.css";
+@import "footer/style.css";
+@import "notification/style.css";
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+body {
+    background: var(--md-sys-color-background);
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 0;
+}
+
+main {
+    margin-top: 80px;
+    flex: 1;
+}
+
+@media (max-width: 500px) {
+    main {
+        margin-top: 70px;
+    }
+}
+
+section {
+    background-color: var(--md-sys-color-surface);
+    padding: 0 20px 10px;
+    margin: 15px 10px;
+    border-radius: 30px;
+    border: var(--md-sys-color-outline) 1px solid;
+    box-shadow: 2px 2px 4px black;
+    height: 100%;
+    /*backdrop-filter: blur(100px);*/
+    /*width: fit-content;*/
+
+    > .part_name {
+        color: var(--md-sys-color-on-surface);
+    }
+
+    /*> p {*/
+    /*    color: var(--md-sys-color-on-surface-variant)*/
+    /*}*/
+}
+
+.part_name {
+    font-size: 25px;
+    font-family: "Roboto Thin", sans-serif;
+    font-weight: 700;
+}
+
+.content {
+    background: var(--md-sys-color-primary);
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px black;
+}
+
+.arrow_button {
+    border: var(--md-sys-color-primary) 1px solid;
+    border-radius: 30px;
+    box-shadow: 2px 2px 4px black;
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    transition: all 400ms;
+    cursor: pointer;
+
+    > span {
+        color: var(--md-sys-color-on-tertiary-container);
+        transition: all 400ms;
+        position: relative;
+    }
+
+    > span::after {
+        color: var(--md-sys-color-on-tertiary-container);
+        content: '\00bb';
+        position: absolute;
+        transition: all 400ms;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+    }
+}
+
+.arrow_button:hover:not(:disabled) {
+    background: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+    border-color: var(--md-sys-color-tertiary);
+
+    > span {
+        padding-right: 25px;
+    }
+
+    > span::after {
+        opacity: 1;
+        right: 0;
+    }
+}
+
+a.arrow_button {
+    display: block;
+    text-decoration: none;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.arrow_button:disabled {
+    background: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    border-color: var(--md-sys-color-on-surface-variant);
+    cursor: default;
+}
+
+.field {
+    border: var(--md-sys-color-on-surface) 1px solid;
+    border-radius: 10px;
+    background: var(--md-sys-color-surface-variant);
+    padding: 5px 10px;
+    display: inline-flex;
+    flex-flow: row wrap;
+    width: 90%;
+    height: min-content;
+
+    > legend {
+        border: #002200 1px solid;
+        border-radius: 10px;
+        background: var(--md-sys-color-secondary);
+        padding: 0.1rem 0.5rem;
+        color: var(--md-sys-color-on-secondary);
+        width: max-content;
+        font-weight: 700;
+    }
+
+    > div {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        padding: 0;
+        margin: 0;
+        width: 13rem;
+        height: fit-content;
+
+        & * {
+            color: var(--md-sys-color-on-surface);
+            font-family: "Roboto Thin", sans-serif;
+        }
+
+    }
+}
+
+fieldset.field {
+    border-color: var(--md-sys-color-secondary);
+    background-color: var(--md-sys-color-surface);
+}
+
+.field:focus {
+    outline: var(--md-sys-color-tertiary) 2px solid;
+
+    & * {
+        color: var(--md-sys-color-on-tertiary-container);
+    }
+}
+
+.legend {
+    border: #002200 1px solid;
+    border-radius: 10px;
+    background: #006877;
+    padding: 0.1rem 0.5rem;
+    color: #ffffff;
+    width: max-content;
+    font-weight: 700;
+}
+
+p.positions {
+    position: relative;
+    bottom: 100px;
+}
+
+.product_cost {
+    margin: 10px;
+    font-size: 2rem;
+    grid-area: cost;
+    color: var(--md-sys-color-on-secondary-container);
+}

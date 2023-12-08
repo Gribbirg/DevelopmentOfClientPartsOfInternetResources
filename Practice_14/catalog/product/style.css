@@ -1,0 +1,215 @@
+@import "../../pages/cart/style.css";
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+section {
+    width: 750px;
+}
+
+#main_section {
+}
+
+#data_div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#main_data_div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#product_gallery {
+    width: 300px;
+    height: fit-content;
+    border-radius: 15px;
+    margin: 20px 10px;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: var(--md-sys-color-surface-variant);
+
+    > div {
+        display: flex;
+        width: fit-content;
+        max-width: 100%;
+        flex-flow: row nowrap;
+        justify-content: start;
+        justify-items: start;
+        align-items: start;
+        overflow: auto;
+        margin: 5px 5px;
+
+        > img {
+            width: 70px;
+            list-style: none;
+            padding: 10px;
+            margin: 5px 2px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        > img:hover {
+            background: var(--md-sys-color-tertiary-container);
+            outline: var(--md-sys-color-tertiary) 1px solid;
+            box-shadow: 1px 1px 3px black;
+        }
+    }
+}
+
+.selected_img_gallery {
+    background: var(--md-sys-color-secondary-container);
+    outline: var(--md-sys-color-secondary) 1px solid;
+}
+
+#logo {
+    margin: 10px;
+    z-index: 2;
+    width: 225px;
+    grid-area: img;
+    border-radius: 15px;
+    border: var(--md-sys-color-primary) 2px solid;
+    background-color: var(--md-sys-color-primary-container);
+    padding: 25px;
+    box-shadow: 1px 1px 2px 1px black;
+}
+
+#main_description {
+    grid-area: desc;
+}
+
+#cost {
+    word-break: break-all;
+    text-align: right;
+    margin: 10px;
+    font-size: 5rem;
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+#buy_div {
+    grid-area: buy_div;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: end;
+}
+
+#similar_ref {
+    grid-area: similar;
+    margin: 10px;
+    background: var(--md-sys-color-secondary-container);
+    border: var(--md-sys-color-secondary) 1px solid;
+    color: var(--md-sys-color-on-secondary-container);
+    width: 200px;
+}
+
+#similar_ref:hover {
+    background: var(--md-sys-color-tertiary-container);
+    border: var(--md-sys-color-tertiary) 1px solid;
+    color: var(--md-sys-color-on-tertiary-container);
+}
+
+#description_section {
+
+    > p {
+        white-space: pre-wrap;
+    }
+}
+
+#characteristics_section {
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+
+    > h2 {
+        align-self: start;
+    }
+
+    > table {
+        align-self: center;
+        padding: 0;
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        & tr {
+            outline: var(--md-sys-color-primary) 1px solid;
+            /*border-radius: 10px;*/
+
+            > td {
+                padding: 5px 10px;
+                max-width: 100%;
+                height: fit-content;
+                width: fit-content;
+
+                white-space: pre-wrap;
+            }
+
+            > :first-child {
+                text-align: right;
+            }
+
+            > :last-child {
+                text-align: left;
+            }
+        }
+
+        > :first-child > tr {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        > :last-child > tr {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    }
+}
+
+.product_buy_button {
+    font-size: 1.5rem;
+    width: 200px;
+    height: 50px;
+}
+
+@media (max-width: 850px) {
+    section {
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 600px) {
+    #data_div {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #main_data_div {
+        > *, > * > * {
+            align-self: center;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    #cost {
+        font-size: 3rem;
+    }
+
+    #product_gallery {
+        width: calc(100%);
+    }
+
+    #logo {
+        width: calc(100% - 70px);
+    }
+}
